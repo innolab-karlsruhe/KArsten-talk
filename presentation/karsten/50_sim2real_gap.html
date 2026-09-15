@@ -1,0 +1,160 @@
+<html lang="en">
+<section data-title="Sim2Real Gap">
+    <section data-transition="slide-in fade-out" data-transition-speed="fast">
+        <h1>Sim2Real Gap</h1>
+        <div class="content">
+        </div>
+        <aside class="notes">
+            Mass &middot; Actuator Armature &middot; Gear friction &middot; Backlash &middot; Latencies &middot; Stiffness
+        </aside>
+    </section>
+    <section data-auto-animate data-auto-animate-id="paramfit" data-transition="fade" data-transition-speed="fast">
+        <h1>Parameter Fitting</h1>
+        <div class="content" data-id="content">
+            <img src="/img/karsten/param_fit_old_pd.png" alt="Joint position and velocity, old PD gains" data-id="fit">
+        </div>
+        <aside class="notes">
+            Vergleich von real, IsaacLab und MuJoCo auf Joint Position und Joint Velocity.
+        </aside>
+    </section>
+    <section data-auto-animate data-auto-animate-id="paramfit" data-transition="fade" data-transition-speed="fast">
+        <h1>Fitting PD Gains</h1>
+        <div class="content" data-id="content">
+            <img src="/img/karsten/param_fit_new_pd_unfitted.png" alt="Joint position and velocity, new PD gains unfitted" data-id="fit">
+        </div>
+        <aside class="notes">
+        </aside>
+    </section>
+    <section data-auto-animate data-auto-animate-id="paramfit" data-transition="fade" data-transition-speed="fast">
+        <h1>Fitting Physical Parameters</h1>
+        <div class="content" data-id="content">
+            <img src="/img/karsten/param_fit_new_pd.png" alt="Joint position and velocity, new PD gains fitted" data-id="fit">
+        </div>
+        <aside class="notes">
+            Mit angepasster Armature und Friction passen Simulation und Realität deutlich besser zusammen.
+        </aside>
+    </section>
+    <section data-transition="fade" data-transition-speed="fast">
+        <h1>Backlash: 0.3 mm Less Play</h1>
+        <div class="content">
+            <!-- Arrow + label are positioned in % of the image box, seeded from the
+                 original slide. Nudge left/top/width/height to place them exactly. -->
+            <div class="annotated">
+                <img src="/img/karsten/backlash_disc.png" alt="Cycloidal disc with the reduced roller diameter marked">
+                <svg class="mark" viewBox="0 0 100 100" preserveAspectRatio="none"
+                     style="left: 55.3%; top: 26.12%; width: 17.3%; height: 4%;">
+                    <defs>
+                        <marker id="bl-head" markerWidth="1.4" markerHeight="4" refX="1.2" refY="2" orient="auto">
+                            <path d="M0,0 L1.4,2 L0,4 z" fill="#FF0000"/>
+                        </marker>
+                        <marker id="bl-tail" markerWidth="1.4" markerHeight="4" refX="1.2" refY="2" orient="auto-start-reverse">
+                            <path d="M0,0 L1.4,2 L0,4 z" fill="#FF0000"/>
+                        </marker>
+                    </defs>
+                    <line x1="0" y1="50" x2="100" y2="50" stroke="#FF0000" stroke-width="12"
+                          marker-start="url(#bl-tail)" marker-end="url(#bl-head)"/>
+                </svg>
+                <div class="mark-label" style="left: 63.95%; top: 29.52%; transform: translateX(-50%);">- 0,3mm</div>
+            </div>
+        </div>
+        <aside class="notes">
+            d: 14,0 mm &rarr; 13,7 mm
+        </aside>
+    </section>
+    <section data-transition="fade" data-transition-speed="fast">
+        <h1>Backlash: Old vs. New</h1>
+        <div class="content">
+            <video preload="none" data-start="0" muted loop data-id="video"
+                   poster="/img/posters/karsten/backlash_old_new_poster.jpeg">
+                <source src="/media/video/karsten/backlash_old_new.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <aside class="notes">
+            Demonstrator zum Durchreichen von zwei Getrieben.
+        </aside>
+    </section>
+    <section data-auto-animate data-auto-animate-id="pushes" data-transition="fade" data-transition-speed="fast">
+        <h1>External Pushes for Stability</h1>
+        <div class="content" data-id="content">
+            <video preload="none" data-start="0" muted loop data-id="video"
+                   poster="/img/posters/karsten/external_pushes_poster.jpeg">
+                <source src="/media/video/karsten/external_pushes.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <aside class="notes">
+            Weitere Verbesserungen mit zusätzlichen Challenges in der Sim, z.B. mit externen Krafteinwirkungen
+            für mehr Robustheit. Der Roboter gleicht so lange aus, bis ihm mechanisch die Grenzen aufgezeigt werden.
+        </aside>
+    </section>
+    <section data-auto-animate data-auto-animate-id="pushes" data-transition="fade" data-transition-speed="fast">
+        <h1>External Pushes for Stability</h1>
+        <div class="content" data-id="content">
+            <video preload="none" data-start="0" muted loop data-id="video"
+                   poster="/img/posters/karsten/external_pushes_feet_poster.jpeg">
+                <source src="/media/video/karsten/external_pushes_feet.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <aside class="notes">
+            Jetzt kann der Roboter sich im Gleichgewicht halten. Wie halten wir ihn davon ab, über die eigenen
+            Füße zu stolpern? Ideen? Abstand zwischen den Füßen belohnen?
+        </aside>
+    </section>
+    <section data-transition="fade" data-transition-speed="fast">
+        <h1>Regular Repairs</h1>
+        <div class="content split">
+            <img src="/img/karsten/repair_broken_ankle.jpg" alt="Broken ankle on the floor"
+                 style="height: 588px; width: auto; max-height: none; max-width: none;">
+            <img src="/img/karsten/repair_in_progress.jpg" alt="Repairing the robot"
+                 style="height: 588px; width: auto; max-height: none; max-width: none;">
+        </div>
+        <aside class="notes">
+            Jedes Ausführen einer Policy auf dem echten Roboter ist natürlich mit Risiken verbunden ...
+            Meistens mussten die Knöchel dran glauben.
+        </aside>
+    </section>
+    <section data-transition="fade" data-transition-speed="fast">
+        <h1>Overcorrections</h1>
+        <div class="content">
+            <video preload="none" data-start="0" muted loop data-id="video"
+                   poster="/img/posters/karsten/overcorrection_sim_poster.jpeg">
+                <source src="/media/video/karsten/overcorrection_sim.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <aside class="notes">
+            Klassische Falle: übermotiviertes Umbauen der Rewards, um das Verhalten zu beeinflussen.
+            Hier: Bestrafung bei Unterschreiten einer Mindestdistanz zwischen den Ankle-Roll-Motoren plus
+            Aufheben des Rewards, der die Hüftgelenke mittig orientiert hält.
+        </aside>
+    </section>
+    <section data-transition="fade" data-transition-speed="fast">
+        <h1>Overcorrections</h1>
+        <div class="content">
+            <video preload="none" data-start="0" muted loop data-id="video"
+                   poster="/img/posters/karsten/tom_cowboy_walk_poster.jpeg">
+                <source src="/media/video/karsten/tom_cowboy_walk.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <aside class="notes">
+            Statt die Fußdistanz als Proxy für das eigentliche Problem (Stolpern) zu nutzen, bestrafen wir
+            einfach Kollisionen des Roboters mit sich selbst.
+        </aside>
+    </section>
+    <section data-transition="fade-in slide-out" data-transition-speed="fast">
+        <h1>Training With Obs History</h1>
+        <div class="content">
+            <video preload="none" data-start="0" muted loop data-id="video"
+                   poster="/img/posters/karsten/obs_history_walking_poster.jpeg">
+                <source src="/media/video/karsten/obs_history_walking.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <aside class="notes">
+        </aside>
+    </section>
+</section>
+</html>

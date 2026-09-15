@@ -1,0 +1,171 @@
+<html lang="en">
+<section>
+    <section>
+        <h1>Robot Foundation Models</h1>
+        <h2>Motivation</h2>
+        <div class="content" style="display: flex; gap: 2rem; align-items: center;">
+            <div style="flex: 2;">
+                <ul>
+                    <li>Previous SOTA: Specialized Models</li>
+                    <li>One Specialized Model per</li>
+                    <ul>
+                        <li>Task</li>
+                        <li>Robot Embodiment</li>
+                    </ul>
+                    <li>Idea RFMs:</li>
+                    <ul>
+                        <li>One Unified Model</li>
+                        <li>Pre-Trained on Large Dataset</li>
+                    </ul>
+
+                    <li>Our RFM of Choice:</li>
+                     <ul>
+                        <li>NVIDIA Isaac GR00T N1.5</li>
+                    </ul>
+                </ul>
+            </div>
+            <div style="flex: 2;">
+                <img src="/img/rfms/robot_sorting_things.png" alt="" style="height: 700px;"/>
+            </div>
+        </div>
+        <aside class="notes">
+            Es sind wirklich die großen Fortschritte in der Physical Intelligence, die uns hier als Softwareunternehmen haben aufhorchen lassen.
+            Wir haben nämlich jetzt die sogenannten Robot Foundation Models.
+
+            So, what are Robot Foundation Models (RFMs)? <br>
+            Before RFMs, the SOTA was to have complex Computer Vision pipelines or specialized models for controlling robots.<br>
+            So assume, you want your robot to pick up glassware and put it in a container, you would typically engineer a model around that specific use case and that specific robot. <br>
+            That is of course rather inflexible and does not scale well. <br><br>
+            So you might know foundation models from Computer Vision or basically all the LLMs: You have one big model that is pre-trained on a large dataset and has a wide range of general capabilities and world knowledge.
+            From that it can then be adapted for specific tasks. Traditionally through transfer learning or fine-tuning, where you can profit from the pre-trained capabilities and knowledge of the model and thus often need less training data.<br><br>
+
+            And RFM try to bring that same idea to robotics. You have one big model with general capabilities that can be adapted to a wide range of tasks and robot embodiments. <br>
+            The general idea from a data perspective is that you train your RFM on many different datasets of different tasks and robots to allow it to build those general capabilities like understanding the physical world around us. <br>
+            Interestingly, when researchers first started exploring the idea of RFMs, they found that by combining multiple data sources, the model would improve in the individual tasks and often outperform the specialized models, probably thanks to the more general physical understanding. <br><br>
+
+            Und das RFM, das wir gerne verwenden is NVIDIA Isaac GR00T.
+        </aside>
+    </section>
+</section>
+  <section>
+      <section>
+        <h1>Robot Foundation Models</h1>
+        <h2>NVIDIA Isaac GR00T N1.5</h2>
+        <div class="content" data-id="content">
+            <img src="/img/rfms/gr00t1.png" alt=""/>
+        </div>
+        <aside class="notes">
+            So sieht das ganze dann aus.
+            Das können wir füttern mit Kamerabildern von einem Roboter zum Beispiel.
+            Wir können das füttern mit dem Status des Roboters.
+            Also zum Beispiel wie sind die Gelenke ausgelegt.
+            Und dann können wir auch eine Instruktion für den Roboter geben in Textform.
+            Und was dann rauskommt, sind direkte Maschineninstruktionen, also Bewegungssteuerkommandos für den Roboter, ein sogenannter Action Chunk.
+            Und was Gr00t und andere RFms so besonders macht, ist, dass sie bereits ab Werk, so wie man sie runterladen kann, vorrainiert wurden auf einem großen Datensatz von vielen verschiedenen Robotern und Roboteraufgaben und so ein schon sehr breites Vorwissen mitbringen.
+            Damit können wir es leicht anpassen auf Use Cases wie diesen:
+        </aside>
+    </section>
+    <section>
+    <h1>Robot Foundation Models</h1>
+        <h2>Dice Sorting with GR00T</h2>
+        <div class="content">
+            <video preload="none" data-start="0" muted loop data-id="video" poster="/img/posters/so101_gr00t_compressed_poster.jpeg">
+                <source src="/media/video/so101_gr00t_compressed.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <aside class="notes">
+            Wir entwickeln bereits mit einigen Kunden verschieden Anwendungen, die können wir heute leider nicht zeigen. <br>
+            Was wir aber zeigen können ist das hier: Das ist eine Demo, die wir vor einiger Zeit mit den S0101 Armen von LeRobot gebaut haben, wo wir verschiedenfarbige Würfel sortieren.
+            Here you can see gr00t performing a complete dice sorting task in the real world, after being trained to do so. It basically has one prompt that is a bit more complex than what we showed you earlier. <br>
+            And after being properly trained, you can see how well it can perform the task end-to-end. <br>
+
+            Wie trainieren wir jetzt GR00T? Man könnte hier auch wieder Reinforcement Learning verwenden, es geht aber auch einfacher mit Imitation Learning.
+        </aside>
+    </section>
+
+
+    <section>
+        <h1>Robot Foundation Models</h1>
+        <h2>Data Collection through Tele-Operation</h2>
+        <div class="content">
+                <video preload="none" data-start="0" muted loop data-id="video" poster="/img/posters/imitation_learning_compressed_poster.jpeg">
+                    <source src="/media/video/imitation_learning_compressed.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+
+        </div>
+        <aside class="notes">
+
+        </aside>
+    </section>
+      <section data-auto-animate="">
+        <h1>Robot Foundation Models</h1>
+        <h2>Fine-Tuning GR00T</h2>
+        <div class="content" data-id="content">
+            <img src="/img/imitation_learning/learning4.png" alt="" data-id="img"/>
+        </div>
+        <aside class="notes">
+
+        </aside>
+    </section>
+
+      <section data-auto-animate="">
+        <h1>Robot Foundation Models</h1>
+        <h2>Fine-Tuning GR00T</h2>
+        <div class="content" data-id="content">
+            <img src="/img/imitation_learning/learning5.png" alt="" data-id="img"/>
+        </div>
+        <aside class="notes">
+            However, most of the time you can also get away with training only the encoders and decoders, while keeping the Diffusion Transformer frozen as well. <br>
+            With this, you rely entirely on the foundational capabilities of the pre-trained model and just learn the specifics of your robot embodiment. This will save compute cost and you don't risk un-learning any useful knowledge of the VLM.<br>
+        </aside>
+    </section>
+      <section>
+        <h1>Robot Foundation Models</h1>
+        <h2>Teleoperation with the G1</h2>
+          <div class="content">
+        <video preload="none" data-start="0" muted loop data-id="video" poster="/img/posters/G1_teleop_compressed_poster.jpeg">
+                    <source src="/media/video/G1_teleop_compressed.mp4" type="video/mp4">
+                  </video>
+          </div>
+        <aside class="notes">
+
+             </aside>
+    </section>
+      <section>
+        <h1>Robot Foundation Models</h1>
+        <h2>Data Recording in Isaac Lab</h2>
+          <div class="content">
+              Video von Roboschach
+          </div>
+        <aside class="notes">
+
+             </aside>
+    </section>
+            <section>
+        <h1>Robot Foundation Models</h1>
+        <h2>Sim2Real</h2>
+          <div class="content">
+              Video von cube stackign in RL
+          </div>
+        <aside class="notes">
+
+             </aside>
+    </section>
+
+
+      <section>
+        <h1>GR00T in a Nutshell</h1>
+        <h2>Gr00t for Gaming?</h2>
+        <div class="content" data-id="content">
+            <img src="/img/rfms/gr00t_gaming.png" alt="" data-id="img"/>
+        </div>
+        <aside class="notes">
+            Because if you think about it, a video game is basically just a robot embodiment with a screen image as input and controller actions as output. <br>
+            We provide it with some context about the video game in the prompt and the robot state is just the last controller input. <br>
+            This is exactly how we are going to let gr00t play video games, so we only need to capture the game screen and the controller input. <br>
+        </aside>
+    </section>
+</section>
+</html>

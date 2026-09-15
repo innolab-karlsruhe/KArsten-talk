@@ -1,0 +1,1439 @@
+// color definitions
+@black: #000000;
+@black-transparent-middle: rgba(0, 0, 0, 0.5);
+@black-transparent-high: rgba(0, 0, 0, 0.2);
+@black-transparent-light: rgba(0, 0, 0, 0.02);
+@black-transparent-low: rgba(0, 0, 0, 0.8);
+@white: #FFFFFF;
+@red: #FF0000;
+@orange: #EE7615;
+@lightgray: #EEEEEE;
+
+// Innovation Hacking brand colors (from innovation-hacking.com)
+@tng: #0563A5;
+@ih: #6b9fdf;
+@ihdark: #075b97;
+@pink: #FF1ABF;
+@pinklight: #FF72E1;
+@pinkdark: #F54C7A;
+@greenlight: #6FEE8D;
+@greendark: #17c964;
+@mluc: #ffb800;
+@mluclight: #ffdd80;
+
+// Legacy color names (mapped to new brand colors)
+@innovation-pink: @mluc;
+@innovation-highlight: rgba(@mluclight, 0.5);
+@innovation-highlight2: rgba(255, 255, 255, 0.25);
+@innovation-highlight3: rgba(96, 96, 96, 0.25);
+@innovation-overlap: rgba(255, 255, 255, 0.44);
+@innovation-overlap2: rgba(255, 210, 64, 0.75);
+@innovation-code: rgb(230, 197, 69);
+@innovation-string: #ffeebf;
+@innovation-background: rgb(23, 23, 23);
+@innovation-content: rgba(38, 38, 38, 0.5);
+@innovation-headline-color: rgb(245, 245, 245);
+@innovation-text-color: rgb(163, 163, 163);
+@innovation-text-color2: rgb(212, 212, 212);
+@blue: rgb(4, 98, 164);
+@lightblue: lighten(@blue, 90%);
+@theme-border-color1: @innovation-text-color;
+
+
+// Light mode palette
+@light-bg: #f7f7f7;
+@light-bg-alt: #ffffff;
+@light-headline-color: rgb(23, 23, 23);
+@light-text-color: rgb(110, 110, 110);
+@light-text-color2: rgb(40, 40, 40);
+@light-content: rgba(0, 0, 0, 0.04);
+
+body:not(.print-pdf) {
+  background-image: linear-gradient(90deg, rgb(0, 0, 0) 0%, @innovation-background 100%);
+  background-size: 100% 100%;
+  width: 100vw;
+  height: 100vh;
+  transition: background-image 300ms ease;
+}
+
+body.light-mode:not(.print-pdf) {
+  background-image: linear-gradient(90deg, @light-bg-alt 0%, @light-bg 100%);
+}
+
+// Subtle IH watermark in light mode to soften the white background
+body.light-mode:not(.print-pdf)::before {
+  content: "";
+  position: fixed;
+  top: -60px;
+  right: -60px;
+  width: 720px;
+  height: 720px;
+  background-image: url("/img/style/innovation_hacking_square_bitone_dark.svg");
+  background-size: contain;
+  background-position: top right;
+  background-repeat: no-repeat;
+  opacity: 0.07;
+  pointer-events: none;
+  z-index: 1;
+}
+
+img {
+  cursor: auto;
+}
+
+.footer {
+  display: flex !important;
+  align-items: center !important;
+  height: 60px !important;
+  background-color: transparent !important;
+  color: @innovation-text-color;
+  font-weight: 200 !important;
+  font-family: 'Inter', serif !important;
+  font-size: 30px !important;
+  vertical-align: center;
+
+  .twitter {
+    height: 35px;
+    vertical-align: middle;
+  }
+}
+
+.ih-logo-background {
+  position: absolute;
+  top: 10px;
+  bottom: 10px;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  text-align: center;
+  display: flex;
+}
+
+.reveal .progress {
+  color: rgba(@innovation-pink, .5);
+}
+
+.reveal .slides > .pdf-page:last-child {
+  page-break-after: avoid !important;
+}
+
+.reveal .slides > .pdf-page:last-child section {
+  page-break-after: avoid !important;
+}
+
+.title-font (@size: 20px) {
+  font-family: 'Inter', serif;
+  color: @innovation-headline-color;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  font-size: @size;
+}
+
+.section-font (@size: 80px) {
+  font-family: 'Inter', serif;
+
+  color: @innovation-text-color2;
+  font-weight: 300;
+  font-size: @size;
+}
+
+.rounded-corners (@radius: 5px) {
+  border-radius: @radius;
+  -webkit-border-radius: @radius;
+  -moz-border-radius: @radius;
+}
+
+.markup (@width: 10px) {
+  border-style: solid;
+  border-color: @red;
+  border-width: @width;
+}
+
+.theme-markup (@width: 10px) {
+  border-style: solid;
+  border-color: @theme-border-color1;
+  border-width: @width;
+}
+
+.hatching {
+  background-image: repeating-linear-gradient(145deg,
+  #95FBE533,
+  #95FBE533 10px,
+  #95FBE511 10px,
+  #95FBE511 20px);
+}
+
+.reveal .slides {
+  section img {
+    background-color: transparent;
+  }
+
+  .title-slide * {
+    color: @innovation-headline-color;
+    background-color: transparent;
+    .title-font(220px);
+  }
+
+  .title-slide .logo-container {
+    display: flex;
+    align-items: center;
+    color: @innovation-text-color2;
+    font-size: 40px;
+    font-weight: 200;
+    position: absolute;
+    width: 2200px;
+    height: 120px;
+    margin-left: 60px;
+    margin-bottom: 50px;
+    bottom: 0;
+  }
+
+  .title-slide .presentation-title {
+    float: left;
+    margin-left: -50px;
+  }
+
+  .title-slide .presentation-title {
+    float: left;
+  }
+
+  .title-slide .presentation-title h1 {
+        span.blue, span.text-colorful {
+            color: @innovation-pink;
+            position: relative;
+            text-align: left;
+            font-size: 350px;
+            line-height: 0.6;
+            font-family: 'Lakeshore-IH', serif;
+            font-weight: 500;
+            z-index: 2;
+            padding: 2rem;
+            margin: -2rem;
+        }
+
+    text-align: left;
+    font-size: 350px;
+    padding-top: 0px;
+    padding-bottom: 57px;
+    padding-left: 20px;
+    padding-right: 55px;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    font-family: 'Lakeshore-IH', serif;
+    font-weight: 500;
+  }
+
+  .title-slide .presentation-title h2 {
+    font-size: 70px;
+    font-weight: 200;
+    color: @innovation-text-color2
+  }
+
+  .title-slide .abstract-face {
+    position: absolute;
+    margin-top: 30px;
+    margin-left: 550px;
+  }
+
+  section:not(.title-section) ul li {
+    font-size: 45px;
+    font-weight: 200;
+  }
+  section > section {
+    background: transparent;
+  }
+
+  section:not(.title-slide) * {
+
+    font-family: "Inter", sans-serif;
+    font-weight: 200;
+    color: @innovation-text-color2;
+    text-decoration-color: @innovation-pink;
+  }
+
+  section:not(.title-section) .titles {
+    .title-font(70px);
+    font-weight: 600;
+  }
+
+  section:not(.title-section) h1 {
+    .title-font(110px);
+    margin-top: 60px;
+  }
+
+  section:not(.title-slide) h2 {
+    .title-font(60px);
+    font-weight: 200;
+    color: @innovation-text-color;
+    margin-bottom: 30px;
+  }
+
+  section:not(.title-section) > div.content {
+    text-align: center;
+
+    //background-image: linear-gradient(90deg, rgba(@innovation-background, 0.5) 0%, rgba(@innovation-content, 0.5) 100%);
+    margin-left: 120px;
+    width: 1650px;
+    padding: 10px;
+    height: 700px;
+    // .rounded-corners(.5rem);
+  }
+
+  section:not(.title-section) > div.content > img {
+    //   background-image: linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0%, rgba(@innovation-pink, 0.05) 100%);
+    max-width: 1600px;
+    .rounded-corners(.5rem);
+  }
+
+  // Secondary, smaller caption/prompt text shown above a video in the content area.
+  // Light mode already colors all section text with @light-text-color2 (see the
+  // light-mode overrides below), so only the dark-mode color is set here.
+  section:not(.title-section) > div.content > p.prompt {
+    color: @innovation-text-color2;
+    font-size: 26px;
+    font-weight: 200;
+  }
+
+  section:not(.title-section) > div.eliza-form > form > textarea {
+    font-size: 30px;
+    width: 100%;
+    font-family: 'Inter', serif;
+    color: @innovation-headline-color;
+    background-color: @innovation-content;
+    border-style: none;
+    padding: 0;
+    .rounded-corners(.5rem);
+  }
+
+  section:not(.title-section) > div.eliza-form > form > input {
+    font-size: 30px;
+
+    width: 100%;
+    font-family: 'Inter', serif;
+    color: @innovation-headline-color;
+    background-color: @innovation-content;
+    padding: 0;
+    .rounded-corners(.5rem);
+  }
+
+  section:not(.title-section) .sources {
+    display: block;
+    width: 1450px;
+    color: @innovation-text-color;
+    font-size: 12px;
+    text-align: center;
+    background-color: @innovation-content;
+    margin-left: 120px;
+    height: 20px;
+    .rounded-corners(.5rem);
+  }
+
+  section > div.content img {
+    object-fit: contain;
+    height: 100%;
+    width: auto;
+    background-color: transparent;
+    .rounded-corners(.5rem);
+  }
+
+  pre {
+    border: none;
+    .rounded-corners(.5rem);
+    margin: 0px;
+  }
+
+  section:not(.title-slide) pre code {
+    background-color: @innovation-content;
+    .rounded-corners(.5rem);
+    width: 100%;
+    max-height: 670px;
+  }
+
+  section:not(.title-slide) pre code {
+    color: @innovation-headline-color;
+    font-family: 'JetBrains', monospace;
+    font-size: 39px;
+    line-height: 1.5;
+  }
+
+  section:not(.title-slide) pre code * {
+    font-family: 'JetBrains', monospace;
+  }
+
+  section:not(.title-slide) pre code .highlight.current-fragment {
+    color: @innovation-pink;
+  }
+   section:not(.title-slide) pre code .chunk1 {
+    background-color: @innovation-highlight;
+  }
+  section:not(.title-slide) pre code .chunk2 {
+    background-color: @innovation-highlight2;
+  }
+  section:not(.title-slide) pre code .chunk3 {
+    background-color: @innovation-highlight3;
+  }
+  section:not(.title-slide) pre code .chunk-overlap {
+    background-color: @innovation-overlap2;
+  }
+  section:not(.title-slide) pre code .chunk-overlap2 {
+    background-color: @innovation-overlap;
+  }
+   section:not(.title-slide) pre .hljs-string {
+    color: @innovation-string
+  }
+    section:not(.title-slide) pre .hljs-keyword {
+
+    color: @innovation-code
+  }
+    section:not(.title-slide) pre .hljs-built_in {
+    color: @innovation-code
+  }
+    section:not(.title-slide) pre .hljs-comment {
+    color: @innovation-text-color2
+  }
+    section:not(.title-slide) pre .hljs-title.class_,
+    section:not(.title-slide) pre .hljs-title.class_.inherited__,
+    section:not(.title-slide) pre .hljs-class .hljs-title {
+    color: @innovation-pink
+  }
+
+  section > div.content img.schematic {
+    border-radius: 0;
+  }
+
+  section > div.fragment img {
+    object-fit: contain;
+    height: 100%;
+    width: auto;
+    background-color: transparent;
+    .rounded-corners(.5rem);
+  }
+
+  section > div.qr img,
+  section > div.qr canvas {
+    image-rendering: pixelated;
+    position: absolute;
+    top: 540px;
+    right: 120px;
+    width: 200px;
+    height: 200px;
+    padding: 20px;
+    background: white;
+    box-shadow: 0 4px 16px rgb(0 0 0 / 15%);
+    .rounded-corners(.5rem);
+  }
+
+  section > .content.qr-side {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 1.2em;
+    width: 100%;
+    height: 100%;
+  }
+
+  section > .content.qr-side > video {
+    flex: 1 1 auto;
+    min-width: 0;
+    max-height: 80vh;
+    object-fit: contain;
+  }
+
+  .qr-side-panel {
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5em;
+  }
+
+  .qr-inline-label {
+    margin: 0;
+    font-size: 0.5em;
+    font-weight: 600;
+    text-align: center;
+    max-width: 160px;
+    line-height: 1.2;
+  }
+
+  div.qr.qr-inline {
+    background: white;
+    padding: 12px;
+    box-shadow: 0 4px 16px rgb(0 0 0 / 15%);
+    .rounded-corners(.5rem);
+    line-height: 0;
+  }
+
+  div.qr.qr-inline canvas,
+  div.qr.qr-inline img {
+    image-rendering: pixelated;
+    width: 163px;
+    height: 163px;
+    display: block;
+  }
+
+  section:not(.title-section).martin > .content:before {
+    font-size: 30px;
+    color: #00ff00;
+    top: 10px;
+    left: -930px;
+    content: "▲";
+    display: block;
+    height: 10px;
+    width: 100%;
+    position: absolute;
+  }
+
+  section:not(.title-section).jonas > .content:before {
+    font-size: 30px;
+    color: #ffff00;
+    top: 10px;
+    left: -930px;
+    content: "●";
+    display: block;
+    height: 10px;
+    width: 100%;
+    position: absolute;
+  }
+
+  section:not(.title-section).thomas > .content:before {
+    font-size: 30px;
+    color: #ff0000;
+    top: 10px;
+    left: -930px;
+    content: "■";
+    display: block;
+    height: 10px;
+    width: 100%;
+    position: absolute;
+  }
+
+  section span.circle {
+    height: 48px;
+    width: 48px;
+    background-color: #ff000022;
+    border-radius: 50%;
+    border-style: solid;
+    border-color: @red;
+    border-width: 6px;
+    display: inline-block;
+  }
+
+  section .selected-title:before, .reveal > .slides section .title:before {
+    height: 45px;
+    width: 45px;
+    margin-right: 10px;
+    background-size: 40px 40px;
+  }
+   section .titles:after, .reveal > .slides section .titles:after {
+
+    bottom: 350px;
+    right: 300px;
+    width: 450px;
+    height: 450px;
+  }
+
+  section video {
+    height: 100%;
+    width: auto;
+    border-style: none;
+    .rounded-corners(.5rem);
+  }
+
+  section table.overview * {
+    font-size: 0.85em;
+  }
+
+  section table.overview img {
+    width: 2.8em;
+    height: 2.8em;
+  }
+
+  .quote div {
+    background-color: #FFFFFF;
+    margin: 0 0 0 0;
+  }
+
+
+  .quote img {
+    margin-left: 50px;
+    .rounded-corners(50px);
+  }
+
+  .speaker-slide li {
+    list-style-type: none;
+    list-style-image: none;
+    text-align: center;
+    float: left;
+  }
+
+
+  .speaker-slide div.speakers {
+    text-align: center;
+    width: 1800px;
+    margin-left: -95px;
+    margin-top: 140px;
+  }
+
+
+  .speaker-slide div.speakers ul {
+    padding: 0;
+    margin: 0;
+  }
+
+  .speaker-slide div.speakers ul li {
+    padding: 0;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  .speaker-slide div.speakers .speaker {
+    float: left;
+    min-width: 50px;
+    .section-font(50px);
+  }
+
+  .speaker-slide div.speakers .speaker .speaker-name {
+    .section-font(45px);
+    letter-spacing: -0.025em;
+    font-weight: 600;
+    color: @innovation-headline-color;
+    min-width: 500px;
+  }
+
+  .speaker-slide div.speakers .speaker .speaker-position {
+    .section-font(35px);
+    float: left;
+    color: @innovation-text-color2;
+    font-weight: 400;
+    line-height: 50px;
+    min-width: 500px;
+  }
+
+  .speaker-slide .speaker-awards {
+    .section-font(25px);
+    padding-top: 20px;
+    line-height: 30px;
+    color: @innovation-text-color;
+    font-weight: 200;
+  }
+
+  .speaker-slide img {
+    max-width: 350px;
+    max-height: 450px;
+  }
+
+  .speaker-slide img {
+    width: 300px;
+    .rounded-corners(9999px);
+    background-image: linear-gradient(90deg, rgba(@white, 0.1) 0%, rgba(@mluclight, 0.3) 100%);
+  }
+
+  section:not(.title-section) h1.white {
+  }
+
+  section:not(.title-section) > h1 {
+    margin-bottom: 20px;
+  }
+
+  section:not(.title-section) > h2 {
+    margin-top: 20px;
+  }
+
+  section > section:not(.title-section) h2 {
+  }
+
+  .overview .titles div.selected-title {
+    text-decoration: none !important;
+    &:extend(.text-colorful);
+  }
+
+  .overview .titles div.title {
+  }
+
+  .overview .titles div.title:hover {
+    color: @white;
+  }
+
+  .overview .titles div.selected-title:hover {
+    color: @white;
+  }
+
+  .reveal .slides section a {
+  }
+
+  .orpg.generator {
+    height: 670px;
+
+    .output {
+      width: 50%;
+      height: 670px;
+    }
+
+    .input {
+      position: absolute;
+      top: 310px;
+      left: 200px;
+      height: 250px;
+    }
+  }
+
+  .orpg.discriminator {
+    height: 670px;
+
+    .output, .input {
+      border: 7px solid transparent;
+      display: inline-block;
+      width: 40%;
+      height: 630px;
+      margin: 20px;
+    }
+
+    .fragment {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    .fragment.visible {
+      border: 7px solid #00FF00;
+      animation: orpg-blink 1s step-end infinite alternate;
+    }
+
+    @keyframes orpg-blink {
+      50% {
+        border-color: transparent;
+      }
+    }
+  }
+
+
+  .text-input:not(.prompt) {
+    font-weight: bold;
+    padding-left: 1rem;
+    height: 100px;
+    font-size: 40px;
+  }
+
+  .text-output {
+    text-align: left;
+    background: @innovation-content;
+    font-family: "JetBrains", monospace;
+    font-size: 40px;
+    height: 650px;
+    padding-left: 1rem;
+    align-items: center;
+    color: @innovation-headline-color;
+    border-radius: 5px;
+  }
+}
+
+body.print-pdf .reveal .slides {
+  section {
+    background-color: @innovation-background;
+    background-size: 100% 100%;
+    width: 1920px !important;
+  }
+
+  .pdf-page {
+    width: 1920px !important;
+    height: 1079px !important;
+  }
+
+  .not-printed {
+    display: none !important;
+    height: 0;
+  }
+}
+
+.rounded-corners (@radius: 5px) {
+  border-radius: @radius;
+  -webkit-border-radius: @radius;
+  -moz-border-radius: @radius;
+}
+
+section .image-full {
+  position: relative;
+  text-align: center;
+  padding: 20px;
+  width: 95%;
+  height: 95%;
+  margin-bottom: 10px;
+  font-size: 30px;
+  vertical-align: middle;
+  .rounded-corners(15px);
+  box-shadow: none;
+}
+
+@font-face {
+  font-family: 'Rajdhani Bold';
+  font-style: normal;
+  font-weight: 400;
+  src: local("Rajdhani Bold"), local("Rajdhani-Bold"), url("../font/Rajdhani-Bold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: 'JetBrains';
+  font-style: normal;
+  src: url("../font/JetBrainsMono-VariableFont_wght.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  src: url("../font/Inter.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: 'Lakeshore-IH';
+  font-style: normal;
+  font-weight: 500;
+  src: url("../font/Lakeshore-Regular.ttf") format("truetype");
+}
+
+.reveal .slides section .demos.content {
+  button, input {
+    height: 50px;
+    font-size: 1em;
+  }
+
+  textarea {
+    font-size: 0.5em;
+  }
+
+  * {
+    color: black;
+  }
+}
+
+#container {
+  height: 660px;
+  width: 1650px;
+  position: relative;
+  overflow: hidden;
+}
+
+.inno-hacking-underlined {
+  &:extend(.text-colorful);
+  font-weight: 600;
+  font-size: 60px;
+  text-decoration: none;
+}
+
+.text-colorful {
+  background: linear-gradient(to bottom, fade(@mluclight, 80%) 0%, @mluclight 50%, @mluc 100%);
+  background-size: 200% 200%;
+  background-position: 100% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  transition: background-position 500ms;
+  mix-blend-mode: lighten;
+}
+
+.text-colorful:hover {
+  background-position: 75% 75%;
+}
+
+iframe {
+    border-width: 0;
+    border-style: none;
+}
+
+.reveal .slides section:not(.title-slide) .terminal-window {
+  background-color: #1e1e1e;
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  margin: 0 auto;
+  max-width: 1620px;
+  overflow: hidden;
+  text-align: left;
+
+  .terminal-header {
+    background-color: #2d2d2d;
+    padding: 14px 18px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .terminal-dot {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: inline-block;
+  }
+
+  .terminal-dot-red    { background-color: #ff5f56; }
+  .terminal-dot-yellow { background-color: #ffbd2e; }
+  .terminal-dot-green  { background-color: #27c93f; }
+
+  pre {
+    margin: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  pre code {
+    background-color: transparent !important;
+    border-radius: 0 !important;
+    padding: 30px 40px !important;
+    display: block;
+    color: #d4d4d4;
+    font-family: 'JetBrains', monospace;
+    font-size: 32px;
+    line-height: 1.5;
+    white-space: pre;
+
+    .hljs-keyword,
+    .hljs-selector-tag,
+    .hljs-literal {
+      color: #c586c0;
+    }
+
+    .hljs-string,
+    .hljs-attr {
+      color: #ce9178;
+    }
+
+    .hljs-number {
+      color: #b5cea8;
+    }
+
+    .hljs-comment,
+    .hljs-quote {
+      color: #6a9955;
+      font-style: italic;
+    }
+
+    .hljs-built_in,
+    .hljs-type,
+    .hljs-class .hljs-title {
+      color: #4ec9b0;
+    }
+
+    .hljs-title,
+    .hljs-function .hljs-title {
+      color: #dcdcaa;
+    }
+
+    .hljs-meta,
+    .hljs-meta-keyword {
+      color: #dcdcaa;
+    }
+
+    .hljs-params {
+      color: #9cdcfe;
+    }
+
+    .hljs-variable,
+    .hljs-symbol {
+      color: #9cdcfe;
+    }
+
+    .hljs-operator,
+    .hljs-punctuation {
+      color: #d4d4d4;
+    }
+  }
+}
+
+// ============================================================
+// Theme toggle button (shown on title slide)
+// ============================================================
+
+body > .theme-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  margin: 0;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 999px;
+  color: @innovation-text-color2;
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 1;
+  letter-spacing: 0;
+  cursor: pointer;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  transition: background 200ms ease, border-color 200ms ease, color 200ms ease, transform 200ms ease;
+
+  svg {
+    width: 16px;
+    height: 16px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    flex: none;
+  }
+
+  .theme-toggle-icon-light { display: none; }
+  .theme-toggle-icon-dark  { display: inline-block; }
+
+  .theme-toggle-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: 1;
+  }
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.14);
+    border-color: rgba(255, 255, 255, 0.35);
+    transform: translateY(-1px);
+  }
+}
+
+body.light-mode > .theme-toggle {
+  background: rgba(0, 0, 0, 0.04);
+  border-color: rgba(0, 0, 0, 0.15);
+  color: @light-text-color2;
+
+  .theme-toggle-icon-light { display: inline-block; }
+  .theme-toggle-icon-dark  { display: none; }
+
+  &:hover {
+    background: rgba(0, 0, 0, 0.08);
+    border-color: rgba(0, 0, 0, 0.3);
+  }
+}
+
+body.print-pdf > .theme-toggle {
+  display: none !important;
+}
+
+// ============================================================
+// Light mode color overrides
+// ============================================================
+
+body.light-mode {
+  .footer {
+    color: @light-text-color;
+  }
+
+  .reveal .progress {
+    color: rgba(@mluc, 0.7);
+  }
+
+  .reveal .slides {
+    .title-slide * {
+      color: @light-headline-color;
+    }
+
+    .title-slide .logo-container {
+      color: @light-text-color;
+    }
+
+    .title-slide .presentation-title h2 {
+      color: @light-text-color2;
+    }
+
+    section:not(.title-slide) * {
+      color: @light-text-color2;
+    }
+
+    section:not(.title-slide) h1 {
+      color: @light-headline-color;
+    }
+
+    section:not(.title-slide) h2 {
+      color: @light-text-color;
+    }
+
+    section:not(.title-section) .sources {
+      color: @light-text-color;
+      background-color: @light-content;
+    }
+
+    section:not(.title-slide) pre code {
+      background-color: @light-content;
+      color: @light-text-color2;
+    }
+
+    section:not(.title-slide) pre code .highlight.current-fragment {
+      color: @innovation-pink;
+    }
+
+    section:not(.title-slide) pre .hljs-string {
+      color: darken(@innovation-string, 35%);
+    }
+
+    section:not(.title-slide) pre .hljs-keyword,
+    section:not(.title-slide) pre .hljs-built_in {
+      color: darken(@innovation-code, 15%);
+    }
+
+    section:not(.title-section) > div.eliza-form > form > textarea,
+    section:not(.title-section) > div.eliza-form > form > input {
+      color: @light-headline-color;
+      background-color: @light-content;
+    }
+
+    .text-output {
+      background: @light-content;
+      color: @light-headline-color;
+    }
+
+    .speaker-slide div.speakers .speaker {
+      color: @light-text-color2;
+    }
+
+    .speaker-slide div.speakers .speaker .speaker-name {
+      color: @light-headline-color;
+    }
+
+    .speaker-slide div.speakers .speaker .speaker-position {
+      color: @light-text-color2;
+    }
+
+    .speaker-slide .speaker-awards {
+      color: @light-text-color;
+    }
+
+    .speaker-slide img {
+      background-image: linear-gradient(90deg, rgba(0, 0, 0, 0.04) 0%, rgba(@mluc, 0.18) 100%);
+    }
+
+    // The dark-mode gradient relies on a translucent pale top + lighten blend
+    // to "glow" on a dark backdrop. Against white that recipe washes out, so
+    // swap in fully-opaque, deeper gold stops and disable the blend mode.
+    .text-colorful,
+    .inno-hacking-underlined,
+    .overview .titles div.selected-title {
+      mix-blend-mode: normal;
+      background: linear-gradient(to bottom, @mluclight 0%, @mluc 100%);
+      background-size: 100% 100%;
+      background-position: 0 0;
+      -webkit-background-clip: text;
+      background-clip: text;
+    }
+
+  }
+
+  // Swap brand SVGs to dark-letter variants (keeps yellow X gradient intact)
+  img[src$="/img/style/innovation_hacking_square_bitone.svg"] {
+    content: url("/img/style/innovation_hacking_square_bitone_dark.svg");
+  }
+
+  img[src$="/img/style/tng.svg"] {
+    content: url("/img/style/tng_dark.svg");
+  }
+
+  // Overview watermark: swap PNG → dark SVG variant (keeps yellow X)
+  .reveal > .slides section .titles:after {
+    background-image: url("/img/style/innovation_hacking_square_bitone_dark.svg");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  // Override hover color on overview titles (default goes white = invisible here)
+  .reveal .slides .overview .titles div.title:hover,
+  .reveal .slides .overview .titles div.selected-title:hover {
+    color: #888;
+  }
+
+  // List bullets: tiny PNGs without an SVG variant — filter is fine
+  .reveal > .slides section .selected-title:before,
+  .reveal > .slides section .title:before {
+    filter: brightness(0) opacity(0.82);
+  }
+
+  // Keep terminal windows dark for contrast (they look intentional)
+  .reveal .slides section:not(.title-slide) .terminal-window pre code {
+    background-color: transparent !important;
+    color: #d4d4d4;
+  }
+
+  // The section-wide `*` rule above pulls unclassified spans (e.g. the
+  // hljs-function / hljs-class containers wrapping `(`, `)`, `:`) to a
+  // dark color, which goes invisible on the dark terminal bg. Default
+  // every terminal-window descendant back to the light token color;
+  // specific .hljs-* rules above have higher specificity and still win.
+  .reveal .slides section:not(.title-slide) .terminal-window * {
+    color: #d4d4d4;
+  }
+}
+
+body.light-mode.print-pdf .reveal .slides section {
+  background-color: @light-bg;
+}
+// ---------------------------------------------------------------------------
+// Layout helpers for side-by-side slides (text next to media, or media next to
+// media). Opt-in via `class="content split"`, so the other decks are untouched.
+//
+// The base rule `section > div.content img { height: 100%; width: auto }` makes
+// every image fill the content height. That is right for a single centred
+// image, but in a flex row two or three of them overflow the slide sideways,
+// so media inside .split is constrained on both axes instead.
+// ---------------------------------------------------------------------------
+.reveal .slides {
+
+  section:not(.title-section) > div.content.split {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 60px;
+    text-align: left;
+  }
+
+  section:not(.title-section) > div.content.split > img,
+  section:not(.title-section) > div.content.split > video,
+  section:not(.title-section) > div.content.split > figure > img,
+  section:not(.title-section) > div.content.split > figure > video {
+    height: auto;
+    width: auto;
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+    flex: 0 1 auto;
+    min-width: 0;
+  }
+
+  // Text column beside the media. Needs an explicit width: an unsized flex item
+  // holding a <ul> collapses to its longest word and wraps one word per line.
+  section:not(.title-section) > div.content.split > .side-text {
+    flex: 0 0 620px;
+    max-height: 100%;
+    overflow: hidden;
+  }
+
+  // Keep the template's list markers - only the spacing is ours.
+  section:not(.title-section) .side-text ul {
+    margin: 0;
+    text-align: left;
+  }
+
+  section:not(.title-section) .side-text ul li {
+    font-size: 36px;
+    line-height: 1.45;
+    margin-bottom: 18px;
+  }
+
+  section:not(.title-section) .side-text ul ul {
+    margin-top: 8px;
+    margin-left: 40px;
+  }
+
+  section:not(.title-section) .side-text ul ul li {
+    font-size: 30px;
+    color: @innovation-text-color;
+    margin-bottom: 4px;
+  }
+
+  // Image/video with a caption underneath, as one flex child.
+  section:not(.title-section) > div.content.split > figure {
+    margin: 0;
+    min-width: 0;
+    max-height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  section:not(.title-section) > div.content.split > figure > figcaption {
+    font-size: 32px;
+    color: @innovation-text-color;
+    text-align: center;
+  }
+
+  // Small attribution line under the content area.
+  section:not(.title-section) > div.content .credit {
+    font-size: 20px;
+    color: @innovation-text-color;
+    font-weight: 200;
+    margin: 12px 0 0 0;
+    text-align: center;
+    word-break: break-all;
+  }
+
+  // Round portraits in explicit rows. 13 people don't divide evenly, so rather
+  // than letting them wrap into a ragged last row they are grouped 3 / 5 / 5:
+  // the three speakers on top, the ten other contributors below.
+  section:not(.title-section) > div.content.portrait-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+  }
+
+  section:not(.title-section) > div.content.portrait-grid > .portrait-row {
+    display: flex;
+    justify-content: center;
+    gap: 34px;
+  }
+
+  section:not(.title-section) > div.content.portrait-grid img {
+    height: 215px;
+    width: 215px;
+    max-width: none;
+    max-height: none;
+    object-fit: cover;
+    border-radius: 9999px;
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Image annotation helpers (red crosses, dimension arrows).
+// ---------------------------------------------------------------------------
+.reveal .slides {
+
+  // Wrapper that shrink-wraps an image so percentage-positioned annotations
+  // (red crosses, dimension arrows) stay glued to the picture at any scale.
+  section:not(.title-section) > div.content .annotated {
+    position: relative;
+    display: inline-block;
+    height: 100%;
+    line-height: 0;
+  }
+
+  section:not(.title-section) > div.content .annotated > img {
+    height: 100%;
+    width: auto;
+    display: block;
+  }
+
+  section:not(.title-section) > div.content .annotated > .mark {
+    position: absolute;
+    overflow: visible;
+  }
+
+  section:not(.title-section) > div.content .annotated > .mark-label {
+    position: absolute;
+    color: @red;
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 1.1;
+    white-space: nowrap;
+  }
+
+  // One-line source URL under a figure. Taken out of flow so the figure's
+  // height stays equal to the media's - otherwise the caption pads the column
+  // and the media no longer lines up with whatever sits beside it.
+  section:not(.title-section) > div.content.split > figure {
+    position: relative;
+  }
+
+  section:not(.title-section) > div.content.split > figure > figcaption.credit {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    margin-top: 6px;
+    font-size: 12px;
+    color: @innovation-text-color;
+    font-weight: 200;
+    white-space: nowrap;
+    text-align: center;
+  }
+}
+
+
+// --- Vertical rhythm for media slides -------------------------------------
+// Canvas is 1920x1080. A single <h1> occupies 60 (margin-top) + 110 (1em line)
+// + 20 (margin-bottom) = 190px, and the fixed footer owns the bottom 60px, so
+// the band left for the media runs 190 -> 1020 = 830px. .content is content-box
+// with 10px padding, so a 60px optical gutter above and below the media gives
+// margin-top 30 and height 730.
+//
+// `h1 + div.content` matches only decks whose slides carry a single heading;
+// the other talks put an <h2> between the two, so they keep the 700px default.
+.reveal .slides section:not(.title-section) > h1 + div.content {
+  margin-top: 30px;
+  height: 730px;
+}
+
+
+// `section:not(.title-slide) *` sets font-weight: 200 on every descendant,
+// which also catches <b>/<strong> - an author rule beats the browser default,
+// so bold text was rendering at weight 200. Put the emphasis back.
+.reveal .slides section:not(.title-slide) b,
+.reveal .slides section:not(.title-slide) strong {
+  font-weight: 700;
+  color: @innovation-headline-color;
+}
+
+// ---------------------------------------------------------------------------
+// Cause -> effect pair: the geometry you choose (premise) above a chevron,
+// the consequences it forces (effect) below. Mirrors the two-box layout from
+// the source deck, translated to this theme: the premise recedes into the
+// background, the effect is picked out in the accent colour.
+// ---------------------------------------------------------------------------
+.reveal .slides {
+
+  // Fills the column height it is given, so the premise box lines up with the
+  // top of the media beside it and the effect box with the bottom.
+  section:not(.title-section) .cause-effect {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: space-between;
+    height: 100%;
+    gap: 16px;
+    text-align: left;
+  }
+
+  section:not(.title-section) .cause-effect .premise {
+    background-color: rgba(255, 255, 255, 0.06);
+    .rounded-corners(8px);
+    padding: 22px 32px;
+    text-align: center;
+  }
+
+  section:not(.title-section) .cause-effect .premise p {
+    font-size: 34px;
+    font-weight: 200;
+    color: @innovation-text-color;
+    margin: 6px 0;
+  }
+
+  section:not(.title-section) .cause-effect .chevron {
+    align-self: center;
+    width: 58px;
+    height: 28px;
+    fill: @mluc;
+    flex: none;
+  }
+
+  section:not(.title-section) .cause-effect .effect {
+    background-color: rgba(255, 184, 0, 0.12);
+    border-left: 8px solid @mluc;
+    .rounded-corners(8px);
+    padding: 24px 32px;
+  }
+
+  section:not(.title-section) .cause-effect .effect ul {
+    margin: 0;
+  }
+
+  section:not(.title-section) .cause-effect .effect ul li {
+    font-size: 32px;
+    line-height: 1.35;
+    color: @innovation-headline-color;
+    margin-bottom: 16px;
+  }
+
+  section:not(.title-section) .cause-effect .effect ul li:last-child {
+    margin-bottom: 0;
+  }
+
+  section:not(.title-section) .cause-effect .effect b {
+    color: @mluc;
+  }
+}

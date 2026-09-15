@@ -1,0 +1,29 @@
+.idea
+*.iml
+
+node_modules
+
+style/custom.css
+
+*.pdf
+
+.DS_Store
+**/.DS_Store
+
+# Raw, uncompressed source videos pulled from the capture machine.
+# Only the compressed clips under media/video/ get committed.
+/ur5/
+
+# Source deck the talk was extracted from (~1.5 GB of pptx/odp/screencasts).
+# Kept locally as provenance, never committed.
+/input/
+
+# Editor and tooling leftovers
+.vscode/
+/logs/
+**/.comments/
+
+# Not part of this project - left over from something else in this directory.
+/alembic/
+/alembic.ini
+

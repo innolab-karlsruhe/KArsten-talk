@@ -1,0 +1,155 @@
+<html lang="en">
+<section data-title="Berkeley Humanoid Lite">
+    <section data-transition="slide-in fade-out" data-transition-speed="fast">
+        <h1>Berkeley Humanoid Lite</h1>
+        <div class="content" style="position: relative;">
+            <img src="/img/karsten/berkeley_lite_robot.png" alt="Berkeley Humanoid Lite">
+            <img src="/img/karsten/uc_berkeley_seal.png" alt="UC Berkeley" style="height: 140px; position: absolute; right: 20px; bottom: 20px; opacity: 0.85;">
+        </div>
+        <aside class="notes">
+            Nach Florians Ansage haben wir uns umgeschaut, was man da so machen kann, und sind schließlich
+            auf den Berkeley Humanoid Lite gestoßen &ndash; einen komplett open source Humanoiden.
+        </aside>
+    </section>
+    <section data-transition="fade" data-transition-speed="fast">
+        <h1>Derived From a Research Robot</h1>
+        <div class="content" style="position: relative;">
+            <img src="/img/karsten/berkeley_research_robot.png" alt="Berkeley Humanoid research robot">
+            <img src="/img/karsten/uc_berkeley_seal.png" alt="UC Berkeley" style="height: 140px; position: absolute; right: 20px; bottom: 20px; opacity: 0.85;">
+        </div>
+        <aside class="notes">
+            Die Opensource-Variante stammt ursprünglich vom Berkeley Humanoid Research Robot der University
+            of California ab, mit welchem Lokomotion-Research betrieben wurde. Danach haben sie der Welt noch
+            eine self-printable open source Variante geschenkt.
+        </aside>
+    </section>
+    <section data-transition="fade" data-transition-speed="fast">
+        <h1>Berkeley Humanoid Lite</h1>
+        <div class="content">
+            <video preload="none" data-start="0" muted loop data-id="video"
+                   poster="/img/posters/karsten/berkeley_teleop_poster.jpeg">
+                <source src="/media/video/karsten/berkeley_teleop.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <aside class="notes">
+            Diese Opensource-Variante kann man tatsächlich komplett selbst zusammenbauen, wenn man einen
+            3D-Drucker zuhause hat. Hier sieht man, dass der kleine Kerl viel Potential hat &ndash; sie haben
+            in den Videos eine relativ agile Teleoperation demonstriert ...
+        </aside>
+    </section>
+    <section data-transition="fade" data-transition-speed="fast">
+        <h1>Berkeley Humanoid Lite</h1>
+        <div class="content">
+            <video preload="none" data-start="0" muted loop data-id="video"
+                   poster="/img/posters/karsten/berkeley_walking_poster.jpeg">
+                <source src="/media/video/karsten/berkeley_walking.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <aside class="notes">
+            ... als auch gezeigt, dass er in der Lage sein sollte, erfolgreich auf seinen zwei Beinen zu gehen.
+            Wobei anzumerken ist, dass die Geschwindigkeit von diesem Video beschleunigt ist.
+            Nachdem wir das gesehen hatten, wollten wir mal sehen, wie weit man mit diesem Projekt kommt.
+        </aside>
+    </section>
+    <section data-transition="fade" data-transition-speed="fast">
+        <h1>What It Takes to Build One</h1>
+        <div class="content split">
+            <div class="side-text">
+                <ul>
+                    <li><b>24 </b>motors</li>
+                    <li><b>120+</b> 3D printed parts</li>
+                    <li><b>~273h</b> hours of print time on 2 Prusa Printers</li>
+                    <li><b>7kg </b>of filament (PLA)</li>
+                    <li style="margin-top: 40px">Total costs <b>~5000 €</b></li>
+                </ul>
+            </div>
+            <img src="/img/karsten/berkeley_lite_robot_cropped_left.png" alt="Berkeley Humanoid Lite"
+                 style="height: 600px; width: auto; max-height: none; max-width: none;">
+        </div>
+        <aside class="notes">
+            Die Entscheidung war gefallen: Wir bauen diesen Roboter. Nächste Frage: Was brauchen wir eigentlich?
+            Neben den 24 Motoren, die jeweils mit gekaufter Elektronik und Lagern versehen wurden, ist nahezu
+            alles an dem Roboter 3D-gedruckt &ndash; mindestens 120 Teile, mit den gedruckten Getrieben deutlich mehr.
+        </aside>
+    </section>
+    <section data-transition="fade" data-transition-speed="fast">
+        <h1>System Overview</h1>
+        <div class="content split">
+            <img src="/img/karsten/system_overview.png" alt="System overview"
+                 style="height: 522px; width: auto; max-height: none; max-width: none;">
+            <img src="/img/karsten/berkeley_lite_robot_cropped.png" alt="Berkeley Humanoid Lite"
+                 style="height: 522px; width: auto; max-height: none; max-width: none;">
+        </div>
+        <aside class="notes">
+            Das generelle System inkl. Batterie und On-Board-PC.<br/>
+            Frage: "Aber warum hängt unser Roboter dann hier an diesem Kabel?"
+        </aside>
+    </section>
+    <section data-transition="fade" data-transition-speed="fast">
+        <h1>System Overview</h1>
+        <div class="content">
+            <!-- Cross positions are % of the image box, taken from the original slide.
+                 Nudge left/top/width/height on the two .mark svgs to reposition. -->
+            <div class="annotated">
+                <img src="/img/karsten/system_overview.png" alt="System overview, battery and mini PC crossed out">
+                <svg class="mark" viewBox="0 0 100 100" preserveAspectRatio="none"
+                     style="left: 60.47%; top: 2.13%; width: 10.16%; height: 17.04%;">
+                    <line x1="10" y1="10" x2="90" y2="90" stroke="#FF0000" stroke-width="16" stroke-linecap="round"/>
+                    <line x1="90" y1="10" x2="10" y2="90" stroke="#FF0000" stroke-width="16" stroke-linecap="round"/>
+                </svg>
+                <svg class="mark" viewBox="0 0 100 100" preserveAspectRatio="none"
+                     style="left: 27.03%; top: 6.83%; width: 4.24%; height: 5.84%;">
+                    <line x1="10" y1="10" x2="90" y2="90" stroke="#FF0000" stroke-width="22" stroke-linecap="round"/>
+                    <line x1="90" y1="10" x2="10" y2="90" stroke="#FF0000" stroke-width="22" stroke-linecap="round"/>
+                </svg>
+            </div>
+        </div>
+        <aside class="notes">
+            Überleitung: Warum keine Batterie?
+        </aside>
+    </section>
+    <section data-transition="fade" data-transition-speed="fast">
+        <h1>When a LiPo Takes a Hit</h1>
+        <div class="content">
+            <video preload="none" data-start="0" muted loop data-id="video"
+                   poster="/img/posters/karsten/lipo_nail_test_poster.jpeg">
+                <source src="/media/video/karsten/lipo_nail_test.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <aside class="notes">
+            Solche Akkus können z.B. beim Hinfallen beschädigt werden und dann spektakulär mit Abbrennen reagieren.
+        </aside>
+    </section>
+    <section data-transition="fade" data-transition-speed="fast">
+        <h1>Our Neighbours Tried That</h1>
+        <div class="content">
+            <img src="/img/karsten/lipo_burned_door.jpg" alt="Burned entrance door">
+        </div>
+        <aside class="notes">
+            Unsere Nachbarn im Karlsruher Büro haben einen LiPo-Akku fallen gelassen, der dann angefangen hat
+            zu reagieren und in der Eingangstür abgebrannt ist. Gut, dass das Gebäude nur diesen einen Notausgang hat.
+        </aside>
+    </section>
+    <section data-auto-animate data-auto-animate-id="lipo" data-transition="fade" data-transition-speed="fast">
+        <h1>Bought &hellip;</h1>
+        <div class="content" data-id="content">
+            <img src="/img/karsten/lipo_battery_box.jpg" alt="LiPo battery, still in its box" data-id="lipo">
+        </div>
+        <aside class="notes">
+            Da wir mit Stürzen des Roboters rechnen, haben wir die bereits gekaufte Batterie erst einmal verbannt.
+        </aside>
+    </section>
+    <section data-auto-animate data-auto-animate-id="lipo" data-transition="fade-in slide-out" data-transition-speed="fast">
+        <h1>&hellip; and Banned</h1>
+        <div class="content" data-id="content">
+            <img src="/img/karsten/lipo_do_not_use.jpg" alt="LiPo battery labelled FIRE HAZARD - DO NOT USE" data-id="lipo">
+        </div>
+        <aside class="notes">
+            Wir haben uns stattdessen für Kabel entschieden.
+        </aside>
+    </section>
+</section>
+</html>

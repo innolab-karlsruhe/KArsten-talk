@@ -1,0 +1,99 @@
+<html lang="en">
+<section data-title="Reinforcement Learning">
+    <section data-auto-animate data-auto-animate-id="rlloop" data-transition="slide-in fade-out" data-transition-speed="fast">
+        <h1>Reinforcement Learning</h1>
+        <div class="content" data-id="content">
+            <img src="/img/karsten/rl_loop_plain.png" alt="Policy, action, state loop" data-id="rlimg">
+        </div>
+        <aside class="notes">
+            Policy &rarr; KI-Modell, das für jeden Zustand entscheidet, welche Aktion als nächstes ausgeführt
+            werden soll. Umgebung &rarr; Roboter in seiner Umgebung: 1. Simulation (Training), 2. MuJoCo (Sim2Sim),
+            3. echte Welt (Sim2Real) &ndash; Sim2Real Gap. Ziel: "Lernen, gute Actions auszuwählen".
+        </aside>
+    </section>
+    <section data-auto-animate data-auto-animate-id="rlloop" data-transition="fade" data-transition-speed="fast">
+        <h1>Add a Reward</h1>
+        <div class="content" data-id="content">
+            <img src="/img/karsten/rl_loop_reward.png" alt="Policy, action, state and reward loop" data-id="rlimg">
+        </div>
+        <aside class="notes">
+            Um die Qualität der Actions in einem State zu beurteilen, fügen wir einen Reward hinzu
+            (Zuckerbrot und Peitsche). Der Reward hängt von State, Action und Folgestate ab.
+            Reward Design ist eine Kunst: "Mess around and find out" &ndash; in zweierlei Hinsicht: die Policy
+            im Training und wir beim Reward Shaping.
+        </aside>
+    </section>
+    <section data-transition="fade" data-transition-speed="fast">
+        <h1>Facts and Figures</h1>
+        <div class="content split">
+            <div class="side-text">
+                <ul>
+                    <li><b>2 &times;</b> RTX PRO 6000, <b>3 &times;</b> RTX 5090</li>
+                    <li><b>180k &ndash; 280k</b> params
+                        <ul>
+                            <li>1 input layer</li>
+                            <li>3 hidden layers</li>
+                        </ul>
+                    </li>
+                    <li><b>50k &ndash; 200k</b> steps with <b>4096</b> parallel envs
+                        <ul>
+                            <li>~ <b>14 &ndash; 56</b> GPU hours</li>
+                            <li>~ <b>2300 &ndash; 9200</b> robot hours</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <video preload="none" data-start="0" muted loop data-id="video"
+                   poster="/img/posters/karsten/parallel_envs_poster.jpeg"
+                 style="height: 600px; width: auto; max-height: none; max-width: none;">
+                <source src="/media/video/karsten/parallel_envs.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <aside class="notes">
+            Genug der Theorie, wie sieht das in der Praxis aus? Erst einmal braucht man GPUs &ndash; wir hatten
+            5 zur Verfügung. Die Anzahl war gut, um Ideen schnell abstecken zu können, da jede neue Idee ein
+            eigenes Training braucht. Die GPUs waren alle groß genug, da das Modell nicht sonderlich groß ist.
+        </aside>
+    </section>
+    <section data-transition="fade" data-transition-speed="fast">
+        <h1>Rewards</h1>
+        <div class="content">
+            <img src="/img/karsten/reward_curves.png" alt="Reward curves for feet air time and feet slide">
+        </div>
+        <aside class="notes">
+            Was ist dieses Bonbon in echt? Viele Teile fließen in den Reward ein. Die Anteile haben verschiedene
+            Gewichtungen, die beeinflussen, auf was die Policy primär und/oder zuerst reagiert.
+            Beispiele: feet airtime, feet slide &ndash; die fangen mit dem ersten Laufen an.
+        </aside>
+    </section>
+    <section data-transition="fade" data-transition-speed="fast">
+        <h1>Pretrained Policy</h1>
+        <div class="content">
+            <video preload="none" data-start="0" muted loop data-id="video"
+                   poster="/img/posters/karsten/pretrained_policy_sim_poster.jpeg">
+                <source src="/media/video/karsten/pretrained_policy_sim.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <aside class="notes">
+            Man sieht hier die "mitgelieferte" Policy. Erster Eindruck: läuft recht flüssig.
+            Probleme: Rennt eigentlich nur, stolpert gerne über die eigenen Füße.
+            Sieht aber ganz gut aus &ndash; wie sieht das in der echten Welt aus?
+        </aside>
+    </section>
+    <section data-transition="fade-in slide-out" data-transition-speed="fast">
+        <h1>Pretrained Policy</h1>
+        <div class="content">
+            <video preload="none" data-start="0" muted loop data-id="video"
+                   poster="/img/posters/karsten/pretrained_policy_real_poster.jpeg">
+                <source src="/media/video/karsten/pretrained_policy_real.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <aside class="notes">
+            Die Performance ist in der Realität nicht so gut wie in der Sim &rarr; Sim2Real Gap.
+        </aside>
+    </section>
+</section>
+</html>

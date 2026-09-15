@@ -1,0 +1,139 @@
+<html lang="en">
+<section>
+  <section>
+        <h1>Motivation</h1>
+        <h2>Why Robotics? Why now?</h2>
+           <div class="content">
+               <video class="history-video" preload="none" data-start="0" muted loop data-id="video"
+                   poster="/img/posters/RoboDog_compressed_poster.jpeg">
+                <source src="/media/video/RoboDog_compressed.mp4" type="video/mp4"/>
+            </video>
+           </div>
+           <aside class="notes">
+               Warum Robotik? Und warum reden wir da jetzt heute drüber? <br>
+               Wir haben in den letzten zwei Jahren eine wirklich drastische Entwicklung gesehen in der Agilität von Robotern, zweibeinigen Robotern und vierbeinigen Robotern. <br>
+               Und gleichzeitig nicht nur die Hardware Seite, sondern auch starke Sprünge in der Physical Intelligence, also den Gehirnen von Robotern, das Aufkommen von Vision Language Action Modellen und auch Robot Foundation Models. <br>
+               Und das hat uns auch dazu bewegt, hier mit der Robotik durchzustarten.
+           </aside>
+    </section>
+    <section>
+        <h1>Robotics</h1>
+        <h2>Unitree G1</h2>
+        <div class="content" data-id="content">
+            <video class="history-video" preload="none" data-start="0" muted loop data-id="video"
+                   poster="/img/posters/HerdVideo_v4_compressed_poster.jpeg">
+                <source src="/media/video/HerdVideo_v4_compressed.mp4" type="video/mp4"/>
+            </video>
+        </div>
+        <aside class="notes">
+            Einer der erste kommerziell verfügbaren humanoiden Roboter war der Unitree G1.
+            Er ist ca 1,30m groß und wiegt ca 35kg. Er hat 23 Freiheitsgrade und kann bis zu 3m/s schnell laufen.
+            Das war auch der erste brauchbare humanoide Roboter, der wir uns zur Evaluation besorgt haben.
+            Das hier ist jetzt unser G1P0, wie wir ihn nennen.
+            Was wir mit dem G- mit unserem G1 gemacht haben, ist, ihn in einen Go-kart zu setzen.
+        </aside>
+    </section>
+    <section>
+        <h1>Robotics</h1>
+        <h2>The Robo-Kart</h2>
+        <div class="content" data-id="content">
+            <video class="history-video" preload="none" data-start="0" muted loop data-id="video"
+                   poster="/img/posters/robokart_compressed_poster.jpeg">
+                <source src="/media/video/robokart_compressed.mp4" type="video/mp4"/>
+            </video>
+        </div>
+        <aside class="notes">
+            Das war unser erstes Showcase-Projekt mit dem G1 und wir haben ihm beigebracht, dieses Gokart auch zu steuern.
+            Also hier steuert nicht das GoCard den Roboter, sondern der Roboter steuert das Go-Kart.
+            Das war jetzt natürlich auch sehr lustig anzusehen.
+            Und wenn Sie wollen, können Sie das Gokart auch draußen anschauen.
+
+            Aber erst mal auch einfach nur ein warm werden mit dem Roboter, denn wir hatten größere Pläne vor.
+            Denn eigentlich sind Humanoide Roboter dafür gemacht, in Umgebungen und Aufgaben zu meistern, die für uns Menschen ausgelegt wurden.
+            Und dafür muss der Roboter meistens etwas können, was er nicht kann, wenn er nur im Go-Kart sitzt, nämlich gehen.
+
+
+        </aside>
+    </section>
+
+     <section>
+        <h1>Robotics</h1>
+        <h2>Nvidia Isaac Lab</h2>
+        <div class="content" data-id="content">
+
+        </div>
+        <aside class="notes">
+            Und wer gehen lernen will, der fällt oft hin.
+            Und deswegen machen wir das am liebsten nicht mit dem echten Roboter, sondern mit einem Digital Twin in der Simulation.
+            Unser Mittel der Wahl hier ist Nvidia Isaac Lab.
+            Das ist eine Simulations-Umgebung, in der wir jetzt ein Digital Twin von unserem Roboter physikalisch korrekt abbilden können. <br>
+            In dieser Simulation können wir ihm dann zum Beispiel durch Reinforcement Learning das Laufen beibringen. Das sieht dann ungefähr so aus: <br>
+            Weil wir in der Simulation sind, können wir so viele Roboter gleichzeitig hier in diese Szene setzen und lernen lassen. <br>
+            Dadurch können wir ein bisschen schneller lernen. <br>
+            Das eigentliche Training funktioniert dann so, dass wir ein kleines neuronales Netz den Roboter steuern lassen und gutes Verhalten inzentivieren durch sogenannte Rewards. <br>
+            Zum Beispiel, dass der Rücken aufrecht sein soll, dass außer den Füßen nichts den Boden berühren soll und dass er sich mit einer bestimmten Geschwindigkeit nach vorne bewegen muss. <br>
+            Das klingt erstmal einfach, ist in der Praxis sehr schwer, denn oft lernt der Roboter Sachen zu tun, die er nicht tun soll, die aber diese Rewards maximieren. <br>
+        </aside>
+    </section>
+     <section data-auto-animate>
+        <h1>Robotics</h1>
+        <h2>Reinforcement Learning in Isaac Lab</h2>
+        <div class="content" data-id="content">
+             <video preload="none" data-start="0" muted loop data-id="video" poster="/img/posters/reinforcement_learning_compressed_poster.jpeg">
+                <source src="/media/video/reinforcement_learning_compressed.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <aside class="notes">
+            Hier zum Beispiel wollten wir unsere Roboter beibringen, wenn er schon fällt, möglichst sanft zu fallen und am besten überhaupt nicht dazu, den Oberkörper so weit oben zu halten, wie es geht.
+            Das hat dann dazu geführt, dass der Roboter, sobald er hinfällt, auf sich auf Kopf und füße stellt und den Hintern in die Luft streckt, um diesen Reward zu maximieren.
+            Da muss man also ein bisschen Arbeit reinstecken.
+            Genauso wie wir das für den Humanoiden Roboter machen, können wir das natürlich auch für Vierbeiner machen.
+    </aside>
+     </section>
+      <section data-auto-animate>
+        <h1>Robotics</h1>
+        <h2>Reinforcement Learning in Isaac Lab</h2>
+        <div class="content" data-id="content">
+             <video preload="none" data-start="0" muted loop data-id="video" poster="/img/posters/reinforcement_learning_compressed_poster.jpeg">
+                <source src="/media/video/reinforcement_learning_compressed.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <aside class="notes">
+
+    </aside>
+    </section>
+     <section data-auto-animate>
+        <h1>Robotics</h1>
+        <h2>Reinforcement Learning in Isaac Lab</h2>
+        <div class="content" data-id="content">
+            Video von Go2 in Simulationsumgebung + Robodog am laufen
+        </div>
+        <aside class="notes">
+            Hier eignet sich unser Go to, obwohl der Out of the Box schon sehr mächtige Lauf Policies mitnimmt.
+            Viel interessanter ist natürlich, wenn man seinen eigenen Roboter baut, so wie wir das hier gemacht haben.
+        </aside>
+    </section>
+     <section data-auto-animate>
+        <h1>Robotics</h1>
+        <h2>Reinforcement Learning in Isaac Lab</h2>
+        <div class="content" data-id="content">
+            Robodog am laufen + in OnShape
+        </div>
+        <aside class="notes">
+            Dieser Roboter ist aus kompletten Eigendesign entstanden, für uns auch als Forschungsprojekt, wie denn der Weg aussieht von der Idee, über den Entwurf des Modells, 3D-Druck, zusammenbauen und dann schließlich den fertigen Roboter in der Simulation abbilden. <br>
+            Aktuell können wir hier schon mit einer handgemachten Laufpolicy laufen, das sieht noch etwas ulkig aus. Deswegen wollen wir hier auch etwas eleganteres durch Reinforcement Learning trainieren. <br>
+            Roboter mit Beinen und Reinforcement Learning sind aber nur der halbe Grund, warum wir uns so sehr für Robotik interessieren.
+        </aside>
+    </section>
+
+
+
+
+
+
+
+    <!-- Add more content slides as needed -->
+</section>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html style="padding:0; margin:0; height:100%;">
+<head>
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="style/demo.css">
+
+    <title>Demo Control</title>
+</head>
+<body>
+
+<section>
+    <h1>Text Demo Control</h1>
+    <div class="demos content" style="text-align: left; height: 800px; max-height: 800px;">
+
+
+        <button class="start-demo-process" data-demo-id="llama-tokenizer-demo" data-config='{}'>
+            Start Tokenizer Demo
+        </button>
+        <button class="start-demo-process" data-demo-id="vanilla-llm-demo" data-config='{}'>
+            Start Vanilla LLM Demo
+        </button><br/>
+       <!-- <button class="start-demo-process" data-demo-id="worst-assistant-demo" data-config='{}'>
+            Start Worst Assistant Demo
+        </button> -->
+          <button class="start-demo-process" data-demo-id="prompt-engineering-demo" data-config='{}'>
+            Start Prompt Engineering Demo
+        </button>
+
+        <br/>
+        <button class="start-demo-process" data-demo-id="rag-demo" data-config='{}'>
+            Start RAG Demo
+        </button>
+        <br/>
+        <br/>
+       <!-- <button class="start-demo-process" data-demo-id="fine-tuning-demo" data-config='{}'>
+            Start Fine-Tuning Demo
+        </button>
+        <br/>-->
+        <button class="start-demo-process" data-demo-id="closing-demo" data-config='{}'>
+            Start Closing Demo
+        </button>
+        <button class="start-demo-process" data-demo-id="worst-assistant-demo" data-config='{}'>
+            Start Worst Assistant Demo
+        </button>
+
+        <br/>
+        <button class="start-demo-process" data-demo-id="comotion-demo" data-config='{}'>
+            retarget demo
+        </button>
+        <button class="configure-demo-process" data-demo-id="comotion-demo" data-config='{"mode":"smpl"}'>
+            mode: smpl
+        </button>
+        <button class="configure-demo-process" data-demo-id="comotion-demo" data-config='{"mode":"raw-robot"}'>
+            mode: raw-robot
+        </button>
+        <button class="configure-demo-process" data-demo-id="comotion-demo" data-config='{"mode":"retargeted"}'>
+            mode: retargeted
+        </button>
+        <button class="configure-demo-process" data-demo-id="comotion-demo" data-config='{"mode":"g1-deploy"}'>
+            mode: g1-deploy
+        </button>
+        <br/>
+        Visual Demos on the next slide (press SPACE)!
+        <br/>
+        <button class="stop-demo-process">
+            Stop demo
+        </button>
+        <p>
+            <input class="prompt" type="text" id="text-input" size="75"/>
+            <button class="create-output">
+                Create output
+            </button>
+        </p>
+        <p>
+            <textarea class="status demo-progress" rows="20" cols="145"></textarea>
+        </p>
+    </div>
+</section>

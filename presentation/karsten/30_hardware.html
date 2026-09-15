@@ -1,0 +1,253 @@
+<html lang="en">
+<section data-title="Hardware">
+    <section data-transition="slide-in fade-out" data-transition-speed="fast">
+        <h1>Strong Drone Motors</h1>
+        <div class="content split" style="align-items: flex-end">
+            <div class="side-text" style="display: flex; flex-direction: column; justify-content: flex-end; height: 100%">
+                <ul style="margin-bottom: 40px">
+                    <li>Up to <b>1.7 kW</b> (36 A)</li>
+                    <li><b>2.64 Nm</b></li>
+                </ul>
+                <img src="/img/karsten/motor_controller.jpg" alt="Motor controller board"
+                     style="width: 100%; height: auto; max-width: none; max-height: none; display: block; border-radius: 8px;">
+            </div>
+            <img src="/img/karsten/drone_motors.jpg" alt="Pile of drone motors"
+                 style="height: 660px; width: auto; max-height: none; max-width: none;">
+        </div>
+        <aside class="notes">
+            Die ganze Energie will auch umgesetzt werden &ndash; mit den 24 verbauten Motoren, die
+            interessanterweise Drohnenmotoren sind. Drohnenmotoren sind Hochleistungsmotoren, ausgelegt auf
+            maximale Leistung bei geringem Gewicht, was sie hervorragend für humanoide Roboter eignet.
+            Schließlich müssen sie am Ende auch ihr eigenes Gewicht mittragen.
+        </aside>
+    </section>
+    <section data-transition="fade" data-transition-speed="fast">
+        <h1>How Cycloidal Gears Work</h1>
+        <div class="content split">
+            <div class="side-text" style="height: 530px;">
+                <div class="cause-effect">
+                    <div class="premise">
+                        <p>10 ring pins</p>
+                        <p>9 teeth for cycloidal disc</p>
+                    </div>
+                <svg class="chevron" viewBox="0 0 100 50" aria-hidden="true">
+                    <path d="M0,0 L50,38 L100,0 L100,14 L50,50 L0,14 Z"/>
+                </svg>
+                    <div class="effect">
+                        <ul>
+                        <li>ratio 9:1</li>
+                        <li><b>9 full turns</b> of the input shaft makes the output disc turn <b>only once</b></li>
+                        <li>torque 9x bigger at output</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <figure>
+                <video preload="none" data-start="0" muted loop data-id="video"
+                       poster="/img/posters/karsten/cycloidal_principle_poster.jpeg"
+                       style="height: 530px; width: auto; max-height: none; max-width: none;">
+                    <source src="/media/video/karsten/cycloidal_principle.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <figcaption class="credit">https://www.tec-science.com/de/getriebe-technik/planetengetriebe/wie-funktioniert-ein-zykloidgetriebe/</figcaption>
+            </figure>
+        </div>
+        <aside class="notes">
+            Als Getriebe kommen Zykloidgetriebe zum Einsatz. Sie zeichnen sich durch ihre kompakte Bauart bei
+            hohem Übersetzungspotential und großer Stoßfestigkeit aus. In der Animation sieht man, wie ein
+            solches Getriebe funktioniert und wie es seine hohe Übersetzung erreicht.
+        </aside>
+    </section>
+    <section data-transition="fade" data-transition-speed="fast">
+        <h1>3D Printed Cycloidal Gears</h1>
+        <div class="content split">
+            <div class="side-text">
+                <div class="cause-effect">
+                    <div class="premise">
+                        <p>16 ring pins</p>
+                        <p>15 teeth for cycloidal disc</p>
+                    </div>
+                <svg class="chevron" viewBox="0 0 100 50" aria-hidden="true">
+                    <path d="M0,0 L50,38 L100,0 L100,14 L50,50 L0,14 Z"/>
+                </svg>
+                    <div class="effect">
+                        <ul>
+                        <li>ratio 15:1</li>
+                        <li><b>2.64 Nm</b> at the input lead to<b> 39.6 Nm</b> output torque</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <video preload="none" data-start="0" muted loop data-id="video"
+                   poster="/img/posters/karsten/cycloidal_gear_printed_poster.jpeg"
+                       style="height: 650px; width: auto; max-height: none; max-width: none;">
+                <source src="/media/video/karsten/cycloidal_gear_printed.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <aside class="notes">
+            Diese Getriebe bestehen &ndash; ausgenommen der Kugellager &ndash; komplett aus selbstgedruckten
+            Komponenten. 16 Ring Pins und 15 Zähne auf der Zykloidscheibe ergeben ein Übersetzungsverhältnis
+            von 15:1, also nominal fast 40 Nm Drehmoment am Getriebeausgang.
+        </aside>
+    </section>
+    <section data-transition="fade" data-transition-speed="fast">
+        <h1>Mounted on the Motor</h1>
+        <div class="content split">
+            <div class="side-text">
+                <div class="cause-effect">
+                    <div class="premise">
+                        <p>16 ring pins</p>
+                        <p>15 teeth for cycloidal disc</p>
+                    </div>
+                <svg class="chevron" viewBox="0 0 100 50" aria-hidden="true">
+                    <path d="M0,0 L50,38 L100,0 L100,14 L50,50 L0,14 Z"/>
+                </svg>
+                    <div class="effect">
+                        <ul>
+                        <li>ratio 15:1</li>
+                        <li><b>2.64 Nm</b> at the input lead to<b> 39.6 Nm</b> output torque</li>
+                        <li>reduced speed at output</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <video preload="none" data-start="0" muted loop data-id="video"
+                   poster="/img/posters/karsten/cycloidal_gear_motor_poster.jpeg"
+                       style="height: 650px; width: auto; max-height: none; max-width: none;">
+                <source src="/media/video/karsten/cycloidal_gear_motor.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <aside class="notes">
+            Hier das Getriebe verbaut mit dem Motor. Ein Übersetzungsverhältnis von 15:1 führt auch zu einer
+            15-fach kleineren Drehzahl: Der Motor unten dreht sich deutlich schneller als das Legomännchen on top.
+        </aside>
+    </section>
+    <section data-transition="fade" data-transition-speed="fast">
+        <h1>Alternative Gears</h1>
+        <div class="content split">
+            <figure>
+                <img src="/img/karsten/harmonic_drive.png" alt="Harmonic Drive"
+                 style="height: 330px; width: auto; max-height: none; max-width: none;">
+                <figcaption>Harmonic Drive</figcaption>
+            </figure>
+            <figure>
+                <img src="/img/karsten/planetary_gear.png" alt="Planetary Gear"
+                 style="height: 330px; width: auto; max-height: none; max-width: none;">
+                <figcaption>Planetary Gear</figcaption>
+            </figure>
+        </div>
+        <aside class="notes">
+            Es gibt auch weitere Getriebearten, die bei Robotern und Humanoiden eingesetzt werden. Der Klassiker
+            ist das Harmonic Drive, das durch einen flexiblen Zahnkranz ("Flexspline") ein ähnliches
+            Funktionsprinzip hat wie das Zykloidgetriebe, und vor allem durch hohe Übersetzungsdichte und
+            Präzision überzeugt.
+        </aside>
+    </section>
+    <section data-transition="fade" data-transition-speed="fast">
+        <h1>Inertial Measurement Unit</h1>
+        <div class="content split">
+            <img src="/img/karsten/imu_custom_board.jpg" alt="Custom IMU board"
+                 style="height: 730px; width: auto; max-height: none; max-width: none;">
+            <img src="/img/karsten/imu_hiwonder.jpg" alt="Hiwonder 10-axis IMU"
+                 style="height: 730px; width: auto; max-height: none; max-width: none;">
+        </div>
+        <aside class="notes">
+            Der Roboter muss wissen, wie er zum Boden positioniert ist und was die derzeitigen
+            Winkelgeschwindigkeiten sind. Das ist &ndash; neben den Motorpositionen &ndash; seine
+            Hauptinformationsquelle zum Steuern. Die Messung erfolgt mit IMUs; Herausforderungen sind
+            Drift, Noise und Latenz.
+        </aside>
+    </section>
+    <section data-transition="fade" data-transition-speed="fast">
+        <h1>Cable Management</h1>
+        <div class="content">
+            <img src="/img/karsten/cable_management_before.jpg" alt="First arm with messy cabling">
+        </div>
+        <aside class="notes">
+            Wie so häufig ist auch die Verkabelung eines der Probleme, die sich nur bedingt im Voraus planen
+            lassen &ndash; daher muss man erstmal ausprobieren. Hier sieht man die erste Extremität, die
+            fertiggestellt wurde.
+        </aside>
+    </section>
+    <section data-transition="fade" data-transition-speed="fast">
+        <h1>After a Few Iterations</h1>
+        <div class="content">
+            <img src="/img/karsten/cable_management_after.jpg" alt="Arm with tidy cabling">
+        </div>
+        <aside class="notes">
+            Daher Iteration: korrekte Längen der Kabel, Stecker für Stromversorgung und CAN-Bus (Ansteuerung),
+            Zugentlastung, damit kein Zug vom Kabel an den Motorcontroller durchgeleitet wird.
+        </aside>
+    </section>
+    <section data-transition="fade" data-transition-speed="fast">
+        <h1>Undocumented Details</h1>
+        <div class="content split">
+            <img src="/img/karsten/joint_stops_cad_1.png" alt="CAD model showing joint stops"
+                 style="height: 690px; width: auto; max-height: none; max-width: none;">
+            <img src="/img/karsten/joint_stops_cad_2.png" alt="CAD model showing joint stops"
+                 style="height: 690px; width: auto; max-height: none; max-width: none;">
+        </div>
+        <aside class="notes">
+            Eine weitere Herausforderung sind kleinere, aber wichtige, nicht dokumentierte Details. In sämtlichen
+            Bauanleitungen und Videotutorials sind diese markierten Gelenkanschläge nirgends aufgetaucht, weswegen
+            wir sie nicht montiert hatten &ndash; bis sie uns bei einem genaueren Blick ins CAD-Modell zufällig
+            aufgefallen sind.
+        </aside>
+    </section>
+    <section data-transition="fade" data-transition-speed="fast">
+        <h1>Unavailable Parts</h1>
+        <div class="content split">
+            <img src="/img/karsten/brass_part_original.jpg" alt="Brass standoff as specified"
+                 style="height: 730px; width: auto; max-height: none; max-width: none;">
+            <img src="/img/karsten/brass_part_diy.jpg" alt="Self-made brass standoff"
+                 style="height: 730px; width: auto; max-height: none; max-width: none;">
+        </div>
+        <aside class="notes">
+            Für mehr Stabilität wird im Gelenk ein Messingteil benötigt. Leider gibt es das in dieser Form nicht
+            zu kaufen &rarr; DIY.
+        </aside>
+    </section>
+    <section data-transition="fade" data-transition-speed="fast">
+        <h1>Just Make Them Yourself</h1>
+        <div class="content">
+            <video preload="none" data-start="0" muted loop data-id="video"
+                   poster="/img/posters/karsten/drilling_brass_part_poster.jpeg">
+                <source src="/media/video/karsten/drilling_brass_part.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <aside class="notes">
+            Unser Arbeitssicherheitsbeauftragter ist hoffentlich gerade nicht anwesend.
+        </aside>
+    </section>
+    <section data-transition="fade" data-transition-speed="fast">
+        <h1>Hardware Assembled</h1>
+        <div class="content">
+            <video preload="none" data-start="0" muted loop data-id="video"
+                   poster="/img/posters/karsten/hardware_assembled_poster.jpeg">
+                <source src="/media/video/karsten/hardware_assembled.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <aside class="notes">
+            "Hardware haben wir beisammen, jetzt müssen wir sie richtig ansteuern." Quasi die "Baby Experience".
+        </aside>
+    </section>
+    <section data-transition="fade-in slide-out" data-transition-speed="fast">
+        <h1>Hardware Assembled</h1>
+        <div class="content">
+            <video preload="none" data-start="0" muted loop data-id="video"
+                   poster="/img/posters/karsten/baby_walking_poster.jpeg">
+                <source src="/media/video/karsten/baby_walking.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <p class="prompt">* No babies were harmed during the making of this video</p>
+        </div>
+        <aside class="notes">
+            Hat auch Hardware beisammen und muss lernen, damit umzugehen.
+        </aside>
+    </section>
+</section>
+</html>

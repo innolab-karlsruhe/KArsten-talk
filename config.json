@@ -1,0 +1,110 @@
+{
+  "title": "KArsten",
+  "description": "How to Train Your Self-Printed Robot - building and teaching a DIY humanoid",
+  "authors": [
+    "Dr. Florian Gather, Tobias Weyer, Fabian Lübbe"
+  ],
+  "date": "",
+  "style": {
+    "autoFragment": false,
+    "charredTrail": false,
+    "footer": true
+  },
+  "names": {
+    "overview": "Overview"
+  },
+  "slides": {
+    "Template": [
+      "template/00_title_and_speakers.html",
+      "template/20_simulation_environments.html",
+      "template/30_rfms.html",
+      "template/closing_speaker_slide.html"
+    ],
+    "How to Train Your Self-Printed Robot": [
+      "karsten/00_title_and_speakers.html",
+      "karsten/10_motivation.html",
+      "karsten/20_berkeley_humanoid_lite.html",
+      "karsten/30_hardware.html",
+      "karsten/40_reinforcement_learning.html",
+      "karsten/50_sim2real_gap.html",
+      "karsten/60_improve_walk_style.html",
+      "karsten/70_whats_next.html",
+      "karsten/closing_speaker_slide.html",
+      "karsten/90_backup.html"
+    ],
+    "Demo Control": "demos.html"
+  },
+  "pythonDemos": {
+    "python-executable": "venv/bin/python",
+    "demo-directory": "demos",
+    "example-demo": {
+      "executable": "./example_demo.py"
+    },
+    "example-text-demo": {
+      "executable": "./example_demo_text.py"
+    },
+    "haar-demo": {
+      "executable": "./haar_cascade_demo.py"
+    },
+    "vgg-19-demo": {
+      "executable": "./vgg_19_demo.py"
+    },
+    "deep-dream-demo": {
+      "executable": "./deep_dream_demo.py"
+    },
+    "style-transfer-demo": {
+      "executable": "./style_transfer_demo.py"
+    },
+    "face-mesh-demo": {
+      "executable": "./face_mesh_demos.py"
+    },
+    "face-segmentation-demo": {
+      "executable": "./segementation_demo.py"
+    },
+    "inpainting-demo": {
+      "executable": "./inpainting_demo.py"
+    },
+    "deep-fake-demo": {
+      "executable": "./deepfake_demo.py"
+    },
+    "tokenizer-demo": {
+      "executable": "./tokenizer_demo.py"
+    },
+    "llama-tokenizer-demo": {
+      "executable": "./llama_tokenizer_demo.py"
+    },
+    "vanilla-llm-demo": {
+      "executable": "./vanilla_llm_demo.py"
+    },
+    "worst-assistant-demo": {
+      "executable": "./worst_assistant_demo.py"
+    },
+    "prompt-engineering-demo": {
+      "executable": "./prompt_engineering_demo.py"
+    },
+    "rag-demo": {
+      "executable": "./rag_demo.py"
+    },
+    "fine-tuning-demo": {
+      "executable": "./fine-tuning_demo.py"
+    },
+    "closing-demo": {
+      "executable": "./rag_demo.py"
+    },
+    "shitposting-demo": {
+      "executable": "./comment_generator_demo.py"
+    },
+    "person-segmentation-demo": {
+      "executable": "./person_segmentation_demo.py"
+    },
+    "selfie-segmentation-demo": {
+      "executable": "./selfie_segmentation_demo.py"
+    },
+    "face-alignment-demo": {
+      "executable": "./face_cropper_demo.py"
+    },
+    "comotion-demo": {
+      "executable": "./comotion_demo.py"
+    }
+  }
+}

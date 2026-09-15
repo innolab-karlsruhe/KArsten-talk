@@ -1,0 +1,33 @@
+{
+  "name": "karsten-talk",
+  "version": "1.0.0",
+  "description": "How to Train Your Self-Printed Robot",
+  "publicationSettings": {
+    "name": "",
+    "region": "eu-west-1",
+    "username": null,
+    "password": null
+  },
+  "scripts": {
+    "build": "npx lessc style/custom.less style/custom.css",
+    "start": "node src/server/server.js",
+    "publish": "node node_modules/tng-reveal-template/src/server/index.js publish",
+    "unpublish": "node node_modules/tng-reveal-template/src/server/index.js unpublish",
+    "print": "node node_modules/tng-reveal-template/src/server/index.js print --presentation "
+  },
+  "dependencies": {
+    "body-parser": "^1.20.0",
+    "elizabot": "^0.0.3",
+    "express": "^4.18.1",
+    "jsdom": "^20.0.0",
+    "les": "^1.0.1",
+    "less": "^4.1.2",
+    "npm": "^8.12.2",
+    "openai": "^2.0.4",
+    "particles.js": "^2.0.0",
+    "qrcodejs2": "^0.0.2",
+    "socket.io": "^4.5.1",
+    "three": "^0.185.1",
+    "tng-reveal-template": "git+ssh://git@bitbucket.int.tngtech.com:122/rpt/presentation-template.git#release-v9.3.0"
+  }
+}

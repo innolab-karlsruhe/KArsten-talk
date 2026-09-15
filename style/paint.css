@@ -1,0 +1,92 @@
+@font-face {
+    font-family: 'DINMedium';
+    src: url(../font/din-medium.woff) format('woff');
+}
+
+body {
+    font-family: 'DINMedium', sans-serif;
+}
+
+.canvas-button-menu {
+    z-index: 10000;
+    pointer-events: auto;
+}
+
+section canvas {
+    position: absolute;
+    left: 230px;
+    top: 20px;
+    width: 1024px;
+    height: 768px;
+    margin: 0;
+    padding: 0;
+    border: 1px solid #0d6efd;
+    border-radius: .25rem;
+}
+
+section canvas.preview-canvas {
+    position: absolute;
+    left: 12px;
+    top: 638px;
+    width: 200px;
+    height: 150px;
+    margin: 0;
+    padding: 0;
+    border: 1px solid #0d6efd;
+    border-radius: .25rem;
+}
+
+.canvas-button-menu {
+    width: 200px;
+}
+
+.canvas-button-menu .canvas-name {
+    font-size: 2rem;
+    line-height: 1.5;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    user-select: none;
+    width: 100%;
+}
+
+.canvas-button-menu button {
+    display: block;
+
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.5;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    user-select: none;
+    width: 97%;
+
+    padding: .375rem .75rem;
+    border-radius: .25rem;
+    margin: .25rem;
+
+    background-color: transparent;
+    color: #0d6efd;
+    border: 1px solid #0d6efd;
+
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+.canvas-button-menu button.active {
+    background-image: url('../img/icons/pencil.svg');
+    background-repeat: no-repeat;
+    background-position: 0 50%;
+    background-size: 50% 50%;
+}
+
+.canvas-button-menu .previous-canvas-button, .canvas-button-menu .next-canvas-button  {
+    display: inline-block;
+    width: 46%;
+}
+
+.canvas-button-menu button:hover {
+    background-color: #0d6efd;
+    color: #ffffff;
+    border: 1px solid #0d6efd;
+}
