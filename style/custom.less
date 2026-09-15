@@ -1437,3 +1437,35 @@ body.light-mode.print-pdf .reveal .slides section {
     color: @mluc;
   }
 }
+
+// ---------------------------------------------------------------------------
+// Overview slide. The template sizes the chapter list at 70px with 100px of
+// top margin and ~104px per entry; with 9 chapters that comes to 1036px in the
+// 830px band between the <h1> and the footer, so the last two entries fall off
+// the bottom of the slide. Sized to fit 9 entries with room to spare.
+// line-height is set explicitly so the arithmetic is not at the mercy of an
+// inherited value.
+// ---------------------------------------------------------------------------
+.reveal .slides section:not(.title-section) .titles {
+  font-size: 54px;
+}
+
+.reveal > .slides section .titles {
+  margin-top: 40px;
+}
+
+.reveal > .slides section .title,
+.reveal > .slides section .selected-title {
+  line-height: 1.2;
+  margin-top: 4px;
+  margin-bottom: 4px;
+  padding-top: 8px;
+}
+
+.reveal .slides section .title:before,
+.reveal .slides section .selected-title:before {
+  height: 36px;
+  width: 36px;
+  margin-right: 10px;
+  background-size: 32px 32px;
+}
