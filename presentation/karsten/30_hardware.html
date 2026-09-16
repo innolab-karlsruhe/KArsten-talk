@@ -43,12 +43,33 @@
                 </div>
             </div>
             <figure>
-                <video preload="none" data-start="0" muted loop data-id="video"
-                       poster="/img/posters/karsten/cycloidal_principle_poster.jpeg"
-                       style="height: 530px; width: auto; max-height: none; max-width: none;">
-                    <source src="/media/video/karsten/cycloidal_principle.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
+                <!-- Part labels and leader lines are positioned in % of the video box so
+                     they track it at any scale. That only holds while the camera is the
+                     static front-on shot, which it leaves at 12.00 s and never really comes
+                     back to, so data-annotations-until fades them out before the move and
+                     brings them back when the clip loops.
+                     Anchors checked against every 10th-of-a-second of that window: the ring
+                     pin, the blue lobe and the green shaft are on their part in 100% of
+                     frames, the red one in 88% - the rollers orbit, and no point in the
+                     frame does better. -->
+                <div class="annotated" style="height: 530px;" data-annotations-until="11.2">
+                    <video preload="none" data-start="0" muted loop data-id="video"
+                           poster="/img/posters/karsten/cycloidal_principle_poster.jpeg"
+                           style="height: 530px; width: auto; max-height: none; max-width: none;">
+                        <source src="/media/video/karsten/cycloidal_principle.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <svg class="leaders" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                        <path d="M62.2,17.9 L74.5,12.7"/>
+                        <path d="M65.0,40.7 L74.5,33.2"/>
+                        <path d="M49.8,49.6 L74.5,54.7"/>
+                        <path d="M58.8,63.0 L74.5,77.4"/>
+                    </svg>
+                    <div class="mark-label part part-pins" style="left: 75.5%; top: 10.0%;">Ring Pins</div>
+                    <div class="mark-label part part-disc" style="left: 75.5%; top: 30.5%;">Cycloidal disc</div>
+                    <div class="mark-label part part-shaft" style="left: 75.5%; top: 52.0%;">Input shaft</div>
+                    <div class="mark-label part part-output" style="left: 75.5%; top: 72.0%;">Output<br>rollers/disc</div>
+                </div>
                 <figcaption class="credit">https://www.tec-science.com/de/getriebe-technik/planetengetriebe/wie-funktioniert-ein-zykloidgetriebe/</figcaption>
             </figure>
         </div>

@@ -1,0 +1,10 @@
+2026-09-16 13:04:35,331 - INFO - __main__ - Logging to file: ./logs/conport.log
+2026-09-16 13:04:35,331 - INFO - __main__ - Starting ConPort in STDIO mode using FastMCP for initial CLI arg workspace_id: /home/fabian/Projects/mitup-KArsten-talk/karsten-talk/presentation/karsten
+2026-09-16 13:04:35,332 - INFO - context_portal_mcp.db.database - Copying missing alembic.ini from templates to /home/fabian/Projects/mitup-KArsten-talk/karsten-talk/presentation/karsten/alembic.ini
+2026-09-16 13:04:35,332 - INFO - context_portal_mcp.db.database - Copying missing alembic/ scripts from templates to /home/fabian/Projects/mitup-KArsten-talk/karsten-talk/presentation/karsten/alembic
+2026-09-16 13:04:35,333 - INFO - __main__ - STDIO mode: Using effective_workspace_id '/home/fabian/Projects/mitup-KArsten-talk/karsten-talk/presentation/karsten'. Database directory will be created on first actual DB use.
+2026-09-16 13:04:35,337 - INFO - FastMCP.fastmcp.server.server - Starting MCP server 'ConPort' with transport 'stdio'
+2026-09-16 13:04:35,341 - INFO - __main__ - ConPort FastMCP server lifespan starting.
+2026-09-16 13:04:35,347 - INFO - mcp.server.lowlevel.server - Processing request of type ListToolsRequest
+2026-09-16 13:04:35,352 - INFO - mcp.server.lowlevel.server - Processing request of type ListResourcesRequest
+2026-09-16 13:04:35,353 - INFO - mcp.server.lowlevel.server - Processing request of type ListResourceTemplatesRequest

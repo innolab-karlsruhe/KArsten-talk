@@ -1309,6 +1309,12 @@ body.light-mode.print-pdf .reveal .slides section {
     display: block;
   }
 
+  // A video can be annotated the same way, but it sizes itself from an inline
+  // height rather than filling the wrapper, so only the block display is shared.
+  section:not(.title-section) > div.content .annotated > video {
+    display: block;
+  }
+
   section:not(.title-section) > div.content .annotated > .mark {
     position: absolute;
     overflow: visible;
@@ -1321,6 +1327,65 @@ body.light-mode.print-pdf .reveal .slides section {
     font-weight: 600;
     line-height: 1.1;
     white-space: nowrap;
+  }
+
+  // Leader lines from a part of the picture out to its label. viewBox units are
+  // percent of the annotated box and preserveAspectRatio is off, so the ends stay
+  // on their anchors; non-scaling-stroke keeps that squash out of the line width.
+  section:not(.title-section) > div.content .annotated > svg.leaders {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+    pointer-events: none;
+  }
+
+  section:not(.title-section) > div.content .annotated > svg.leaders path {
+    fill: none;
+    stroke: #2f2f2f;
+    stroke-width: 2px;
+    vector-effect: non-scaling-stroke;
+  }
+
+  // Part labels naming what a leader line points at. They sit on the media's own
+  // light background, not on the deck's, so these are the saturated on-white
+  // colours sampled from the render rather than the dark-mode palette - and they
+  // stay the same in light mode for that reason.
+  section:not(.title-section) > div.content .annotated > .mark-label.part {
+    font-size: 26px;
+  }
+
+  section:not(.title-section) > div.content .annotated > .mark-label.part-pins {
+    color: #2f2f2f;
+  }
+
+  section:not(.title-section) > div.content .annotated > .mark-label.part-disc {
+    color: #006bef;
+  }
+
+  section:not(.title-section) > div.content .annotated > .mark-label.part-shaft {
+    color: #00800f;
+  }
+
+  section:not(.title-section) > div.content .annotated > .mark-label.part-output {
+    color: #c81e1e;
+  }
+
+  // Annotations over a video whose camera moves. src/client/extension/extension.js
+  // adds .annotations-hidden past the time given in data-annotations-until, so the
+  // marks are gone before they would stop pointing at anything.
+  section:not(.title-section) > div.content .annotated[data-annotations-until] > svg.leaders,
+  section:not(.title-section) > div.content .annotated[data-annotations-until] > .mark,
+  section:not(.title-section) > div.content .annotated[data-annotations-until] > .mark-label {
+    transition: opacity 400ms ease;
+  }
+
+  section:not(.title-section) > div.content .annotated.annotations-hidden > svg.leaders,
+  section:not(.title-section) > div.content .annotated.annotations-hidden > .mark,
+  section:not(.title-section) > div.content .annotated.annotations-hidden > .mark-label {
+    opacity: 0;
   }
 
   // One-line source URL under a figure. Taken out of flow so the figure's

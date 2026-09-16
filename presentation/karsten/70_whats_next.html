@@ -2,14 +2,144 @@
 <section data-title="What's Next?">
     <section data-transition="slide-in fade-out" data-transition-speed="fast">
         <h1>What's Next?</h1>
-        <div class="content">
-            <img src="/img/karsten/sonic_concept.png" alt="Motion trackings train a full body control model">
+        <div class="content" style="position: relative; height: 730px; margin-top: 30px;">
+            <!-- NVIDIA SONIC logo in top left -->
+            <div style="position: absolute; top:50px; left: 10px; display: flex; align-items: center; gap: 12px; z-index: 20;">
+                <img src="/img/karsten/NVIDIA_logo.png" alt="NVIDIA" style="height: 60px; width: auto; display: block;">
+                <span style="font-family: 'Inter', sans-serif; font-size: 50px; font-weight: 700; color: #ffffff; line-height: 1;">SONIC</span>
+            </div>
+
+            <!-- Train group: motion-data icon + top arrow -->
+            <div class="fragment" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none;">
+                <svg style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" viewBox="0 0 1630 730" preserveAspectRatio="none" aria-hidden="true">
+                    <defs>
+                        <marker id="arrow-yellow" markerWidth="12" markerHeight="12" refX="11" refY="6" orient="auto">
+                            <polygon points="0 0, 12 6, 0 12" fill="#ffb800"/>
+                        </marker>
+                    </defs>
+                    <!-- Top arrow: train (motion-data to model) -->
+                    <line x1="780" y1="320" x2="780" y2="440" stroke="#ffb800" stroke-width="3" marker-end="url(#arrow-yellow)"/>
+                    <text x="800" y="380" font-size="24" font-family="Inter" fill="#ffb800" font-weight="600">train</text>
+                </svg>
+                <div style="position: absolute; top: 130px; left: 795px; transform: translateX(-50%); pointer-events: auto;">
+                    <img src="/img/karsten/motion-data.png" alt="Motion data" style="width: 420px; height: auto; display: block;">
+                </div>
+            </div>
+
+            <!-- Inference group: left arrow + target-motion icon -->
+            <div class="fragment" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none;">
+                <svg style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" viewBox="0 0 1630 730" preserveAspectRatio="none" aria-hidden="true">
+                    <defs>
+                        <marker id="arrow-yellow-inf" markerWidth="12" markerHeight="12" refX="11" refY="6" orient="auto">
+                            <polygon points="0 0, 12 6, 0 12" fill="#ffb800"/>
+                        </marker>
+                    </defs>
+                    <!-- Left arrow: inference (target-motion to model) -->
+                    <line x1="440" y1="510" x2="620" y2="510" stroke="#ffb800" stroke-width="3" marker-end="url(#arrow-yellow-inf)"/>
+                    <text x="465" y="490" font-size="24" font-family="Inter" fill="#ffb800" font-weight="600">inference</text>
+                </svg>
+                <div style="position: absolute; left: 20px; top: 420px; pointer-events: auto;">
+                    <img src="/img/karsten/target-motion.png" alt="Target motion" style="width: 420px; height: auto; display: block;">
+                </div>
+            </div>
+
+            <!-- Center: Full Body Control Model text -->
+            <div style="position: absolute; left: 800px; top: 475px; transform: translateX(-50%); text-align: center; z-index: 10;">
+                <div style="font-family: 'Inter', serif; font-size: 40px; font-weight: 600; color: #ffffff; line-height: 1.2; white-space: nowrap;">
+                    Full Body<br>Control Model
+                </div>
+            </div>
+
+            <!-- Output group: right arrow + karsten-motion icon -->
+            <div class="fragment" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none;">
+                <svg style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" viewBox="0 0 1630 730" preserveAspectRatio="none" aria-hidden="true">
+                    <defs>
+                        <marker id="arrow-yellow-out" markerWidth="12" markerHeight="12" refX="11" refY="6" orient="auto">
+                            <polygon points="0 0, 12 6, 0 12" fill="#ffb800"/>
+                        </marker>
+                    </defs>
+                    <!-- Right arrow: output (model to karsten-motion) -->
+                    <line x1="945" y1="510" x2="1110" y2="510" stroke="#ffb800" stroke-width="3" marker-end="url(#arrow-yellow-out)"/>
+                    <text x="980" y="490" font-size="24" font-family="Inter" fill="#ffb800" font-weight="600">output</text>
+                </svg>
+                <div style="position: absolute; right: 20px; top: 380px; pointer-events: auto;">
+                    <img src="/img/karsten/karsten-motion.png" alt="Karsten motion" style="width: 500px; height: auto; display: block;">
+                </div>
+            </div>
         </div>
         <aside class="notes">
             Arme montieren und Bewegung mit Armen lernen. Batterie und internen Rechner. Motion Priors,
             z.B. mit Nvidia SONIC &rarr; später ein Vortrag im Robotik-Track. Und mit Realdaten für Gewichte,
             Trägheitstensoren und Latenzen die Simulation verbessern, da wir davon ausgehen, dass die
             Original-Berkeley-Werte noch Verbesserungspotenzial haben.
+        </aside>
+    </section>
+    <section data-transition="fade" data-transition-speed="fast">
+        <h1>What's Next?</h1>
+        <div class="content" style="position: relative; height: 730px; margin-top: 30px;">
+            <div style="position: absolute; top:50px; left: 10px; display: flex; align-items: center; gap: 12px; z-index: 20;">
+                <img src="/img/karsten/NVIDIA_logo.png" alt="NVIDIA" style="height: 60px; width: auto; display: block;">
+                <span style="font-family: 'Inter', sans-serif; font-size: 50px; font-weight: 700; color: #ffffff; line-height: 1;">SONIC</span>
+            </div>
+
+            <!-- Train group: motion-data icon + top arrow -->
+            <div class="fragment" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none;">
+                <svg style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" viewBox="0 0 1630 730" preserveAspectRatio="none" aria-hidden="true">
+                    <defs>
+                        <marker id="arrow-yellow2" markerWidth="12" markerHeight="12" refX="11" refY="6" orient="auto">
+                            <polygon points="0 0, 12 6, 0 12" fill="#ffb800"/>
+                        </marker>
+                    </defs>
+                    <!-- Top arrow: train (motion-data to model) -->
+                    <line x1="780" y1="320" x2="780" y2="420" stroke="#ffb800" stroke-width="3" marker-end="url(#arrow-yellow2)"/>
+                    <text x="800" y="365" font-size="24" font-family="Inter" fill="#ffb800" font-weight="600">train</text>
+                </svg>
+                <div style="position: absolute; top: 130px; left: 795px; transform: translateX(-50%); pointer-events: auto;">
+                    <img src="/img/karsten/motion-data.png" alt="Motion data" style="width: 420px; height: auto; display: block;">
+                </div>
+            </div>
+
+            <!-- Inference group: left arrow + target-motion icon -->
+            <div class="fragment" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none;">
+                <svg style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" viewBox="0 0 1630 730" preserveAspectRatio="none" aria-hidden="true">
+                    <defs>
+                        <marker id="arrow-yellow2-inf" markerWidth="12" markerHeight="12" refX="11" refY="6" orient="auto">
+                            <polygon points="0 0, 12 6, 0 12" fill="#ffb800"/>
+                        </marker>
+                    </defs>
+                    <!-- Left arrow: inference (target-motion to model) -->
+                    <line x1="440" y1="510" x2="620" y2="510" stroke="#ffb800" stroke-width="3" marker-end="url(#arrow-yellow2-inf)"/>
+                    <text x="465" y="490" font-size="24" font-family="Inter" fill="#ffb800" font-weight="600">inference</text>
+                </svg>
+                <div style="position: absolute; left: 20px; top: 420px; pointer-events: auto;">
+                    <img src="/img/karsten/target-motion.png" alt="Target motion" style="width: 420px; height: auto; display: block;">
+                </div>
+            </div>
+
+            <!-- Center: neural-net icon -->
+            <div style="position: absolute; left: 800px; top: 455px; transform: translateX(-50%); text-align: center; z-index: 10;">
+                <img src="/img/karsten/neural_net.png" alt="Neural network" style="width: 250px; height: auto; display: block;">
+            </div>
+
+            <!-- Output group: right arrow + karsten-motion icon -->
+            <div class="fragment" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none;">
+                <svg style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" viewBox="0 0 1630 730" preserveAspectRatio="none" aria-hidden="true">
+                    <defs>
+                        <marker id="arrow-yellow2-out" markerWidth="12" markerHeight="12" refX="11" refY="6" orient="auto">
+                            <polygon points="0 0, 12 6, 0 12" fill="#ffb800"/>
+                        </marker>
+                    </defs>
+                    <!-- Right arrow: output (model to karsten-motion) -->
+                    <line x1="945" y1="510" x2="1110" y2="510" stroke="#ffb800" stroke-width="3" marker-end="url(#arrow-yellow2-out)"/>
+                    <text x="980" y="490" font-size="24" font-family="Inter" fill="#ffb800" font-weight="600">output</text>
+                </svg>
+                <div style="position: absolute; right: 20px; top: 380px; pointer-events: auto;">
+                    <img src="/img/karsten/karsten-motion.png" alt="Karsten motion" style="width: 500px; height: auto; display: block;">
+                </div>
+            </div>
+        </div>
+        <aside class="notes">
+            Alternative version with neural network visualization instead of text label.
         </aside>
     </section>
     <section data-transition="fade" data-transition-speed="fast">
@@ -22,7 +152,7 @@
         </aside>
     </section>
     <section data-transition="fade-in slide-out" data-transition-speed="fast">
-        <h1>Generalized Motion Priors</h1>
+        <h1>SONIC in Action</h1>
         <div class="content">
             <video preload="none" data-start="0" muted loop data-id="video"
                    poster="/img/posters/karsten/g1_schuhplattler_poster.jpeg">
