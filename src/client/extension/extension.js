@@ -34,6 +34,7 @@ module.exports = {
         preventRevealKeyBindingsInPrompts(Reveal);
         startVideoOnClick();
         startVideoWithSpace(Reveal);
+        startVideoWithSpaceFromSpeakerView();
         loadParticlesConfig(Reveal);
         setupThemeToggle(Reveal);
         dropOverviewsOnceSeen(Reveal);
@@ -89,6 +90,41 @@ const preventRevealKeyBindingsInPrompts = (Reveal) => {
     });
 };
 
+// A video's key is space: the first press starts it, the next one advances the deck.
+// Which window sees that press depends on where the focus is, so both entry points -
+// a keydown here and the key the speaker view forwards - end in playPausedVideos.
+const SPACE_KEY_CODE = 32;
+
+const startVideo = (video) => {
+    const start = video.getAttribute('data-start');
+    if (start !== null) {
+        video.currentTime = start;
+    }
+    video.play().catch((error) => console.error('video play failed', error));
+};
+
+// Starts the paused videos on the given window's current slide, and reports whether
+// there were any - that is, whether the key press that got us here has been used up.
+const playPausedVideos = (win) => {
+    let reveal;
+    try {
+        reveal = win.Reveal;
+    } catch (e) {
+        return false; // a cross-origin window, so not one of ours
+    }
+    if (!reveal || typeof reveal.getCurrentSlide !== 'function') {
+        return false;
+    }
+    const slide = reveal.getCurrentSlide();
+    if (!slide) {
+        return false;
+    }
+    const paused = Array.from(slide.getElementsByTagName('video'))
+        .filter((video) => video.paused || video.ended);
+    paused.forEach(startVideo);
+    return paused.length > 0;
+};
+
 // Entering a slide only shows a video's poster frame. The first click starts it
 // from its data-start, a click while it is running pauses it again. The listener
 // lives on the document and matches the video under the click, so it also covers
@@ -100,11 +136,7 @@ const startVideoOnClick = () => {
             return;
         }
         if (video.paused || video.ended) {
-            const start = video.getAttribute('data-start');
-            if (start !== null) {
-                video.currentTime = start;
-            }
-            video.play().catch((error) => console.error('video play failed', error));
+            startVideo(video);
         } else {
             video.pause();
         }
@@ -130,26 +162,67 @@ const startVideoWithSpace = (Reveal) => {
         if (Reveal.isSpeakerNotes && Reveal.isSpeakerNotes()) {
             return;
         }
-        const slide = Reveal.getCurrentSlide();
-        if (!slide) {
-            return;
-        }
-        const pausedVideos = Array.from(slide.getElementsByTagName('video'))
-            .filter((video) => video.paused || video.ended);
-        if (pausedVideos.length === 0) {
+        if (!playPausedVideos(window)) {
             return;
         }
         event.preventDefault();
         event.stopPropagation();
-        pausedVideos.forEach((video) => {
-            const start = video.getAttribute('data-start');
-            if (start !== null) {
-                video.currentTime = start;
-            }
-            video.play().catch((error) => console.error('video play failed', error));
-        });
     }, true);
 }
+
+// With the speaker window focused no keydown reaches the deck at all: the notes
+// plugin forwards the key to its own current-slide preview iframe as a
+// {method: 'triggerKey'} postMessage, that iframe navigates, and the main window
+// follows via setState. The rule has to be applied to the message instead, inside
+// the preview iframe, ahead of reveal's own message listener - which is what
+// registering it from configure() buys us, since the template only calls
+// Reveal.initialize() afterwards.
+//
+// The video that matters is the one on the projector, so the main window decides
+// whether the key is used up and the preview only follows. window.parent is the
+// speaker window and its opener is the main window; both are same-origin, so the
+// iframe can reach the deck the audience sees directly.
+const startVideoWithSpaceFromSpeakerView = () => {
+    window.addEventListener('message', (event) => {
+        const raw = event.data;
+        if (typeof raw !== 'string' || raw.charAt(0) !== '{') {
+            return;
+        }
+        let message;
+        try {
+            message = JSON.parse(raw);
+        } catch (e) {
+            return;
+        }
+        if (message.method !== 'triggerKey' || !message.args || message.args[0] !== SPACE_KEY_CODE) {
+            return;
+        }
+        const main = presentationWindow();
+        if (!main || !playPausedVideos(main)) {
+            return;
+        }
+        playPausedVideos(window); // keep the speaker's preview in step
+        event.stopImmediatePropagation();
+    }, true);
+}
+
+// The main presentation window, seen from the speaker view's preview iframe.
+// null everywhere else, the main window itself included.
+const presentationWindow = () => {
+    try {
+        const speakerWindow = window.parent;
+        if (!speakerWindow || speakerWindow === window) {
+            return null;
+        }
+        const opener = speakerWindow.opener;
+        if (!opener || opener === window || opener.closed) {
+            return null;
+        }
+        return opener.Reveal ? opener : null;
+    } catch (e) {
+        return null; // the speaker window or its opener is cross-origin
+    }
+};
 
 // Marks positioned in percent of a video box only stay on their part while the camera
 // holds still. An `.annotated` wrapper can name the second the shot changes with
