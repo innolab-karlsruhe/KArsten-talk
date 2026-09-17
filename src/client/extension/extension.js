@@ -32,7 +32,8 @@ module.exports = {
     configure: function (Reveal, config) {
         updateFooter(Reveal);
         preventRevealKeyBindingsInPrompts(Reveal);
-        autoStartVideo(Reveal);
+        startVideoOnClick();
+        startVideoWithSpace(Reveal);
         loadParticlesConfig(Reveal);
         setupThemeToggle(Reveal);
         dropOverviewsOnceSeen(Reveal);
@@ -88,18 +89,66 @@ const preventRevealKeyBindingsInPrompts = (Reveal) => {
     });
 };
 
-const autoStartVideo = (Reveal) => {
-    Reveal.addEventListener('slidechanged', function (event) {
-        const videoTags = Array.prototype.slice.call(event.currentSlide.getElementsByTagName('video'));
-        videoTags.forEach(function (tag) {
-            if (window === window.top) {
-                tag.play();
-                if (tag.getAttribute('data-start') !== null) {
-                    tag.currentTime = tag.getAttribute('data-start');
-                }
+// Entering a slide only shows a video's poster frame. The first click starts it
+// from its data-start, a click while it is running pauses it again. The listener
+// lives on the document and matches the video under the click, so it also covers
+// slides that the external slide loader puts into the DOM later.
+const startVideoOnClick = () => {
+    document.addEventListener('click', (event) => {
+        const video = event.target.closest('video');
+        if (!video) {
+            return;
+        }
+        if (video.paused || video.ended) {
+            const start = video.getAttribute('data-start');
+            if (start !== null) {
+                video.currentTime = start;
             }
-        });
+            video.play().catch((error) => console.error('video play failed', error));
+        } else {
+            video.pause();
+        }
     });
+}
+
+// Space plays the current slide's paused videos before reveal sees the key, so the
+// first press starts the video and only the next one advances the deck. Everything
+// else - no video on the slide, video already running, typing in an input, overview
+// or speaker view open - falls through to reveal's own space = next.
+const startVideoWithSpace = (Reveal) => {
+    document.addEventListener('keydown', (event) => {
+        if (event.key !== ' ') {
+            return;
+        }
+        const target = event.target;
+        if (target && (target.isContentEditable || /^(input|textarea|select|button)$/i.test(target.tagName))) {
+            return;
+        }
+        if (Reveal.isOverview && Reveal.isOverview()) {
+            return;
+        }
+        if (Reveal.isSpeakerNotes && Reveal.isSpeakerNotes()) {
+            return;
+        }
+        const slide = Reveal.getCurrentSlide();
+        if (!slide) {
+            return;
+        }
+        const pausedVideos = Array.from(slide.getElementsByTagName('video'))
+            .filter((video) => video.paused || video.ended);
+        if (pausedVideos.length === 0) {
+            return;
+        }
+        event.preventDefault();
+        event.stopPropagation();
+        pausedVideos.forEach((video) => {
+            const start = video.getAttribute('data-start');
+            if (start !== null) {
+                video.currentTime = start;
+            }
+            video.play().catch((error) => console.error('video play failed', error));
+        });
+    }, true);
 }
 
 // Marks positioned in percent of a video box only stay on their part while the camera
@@ -121,7 +170,7 @@ const syncAnnotationsToVideo = (Reveal) => {
             const update = () => box.classList.toggle('annotations-hidden', video.currentTime >= until);
 
             // timeupdate carries playback; seeked catches the jump back to data-start
-            // that autoStartVideo does every time the slide is shown.
+            // that starting a video with a click does.
             video.addEventListener('timeupdate', update);
             video.addEventListener('seeked', update);
             video.addEventListener('loadedmetadata', update);

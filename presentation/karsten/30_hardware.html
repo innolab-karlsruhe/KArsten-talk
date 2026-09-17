@@ -15,10 +15,13 @@
                  style="height: 660px; width: auto; max-height: none; max-width: none;">
         </div>
         <aside class="notes">
-            Die ganze Energie will auch umgesetzt werden &ndash; mit den 24 verbauten Motoren, die
-            interessanterweise Drohnenmotoren sind. Drohnenmotoren sind Hochleistungsmotoren, ausgelegt auf
-            maximale Leistung bei geringem Gewicht, was sie hervorragend für humanoide Roboter eignet.
-            Schließlich müssen sie am Ende auch ihr eigenes Gewicht mittragen.
+            Tobias<br/>
+            Die ganze Energie will auch umgesetzt werden und zwar passiert das mit den 24 verbauten Motoren, die interessanterweise Drohnenmotoren sind.<br/>
+            Drohnenmotoren sind Hochleistungsmotoren, die auf maximale Leistung bei möglichst geringem Gewicht ausgelegt sind, was sie hervorragend auch für Humanoide Roboter eignet. Schließlich müssen sie am Ende auch ihr eigenes Gewicht mittragen<br/>
+            Die hier verbauten einzelnen Motoren haben eine Leistung von bis zu 1,7kW und&nbsp;können damit in ihrem eigentlichen Drohneneinsatzgebiet&nbsp;bis zu 9 Kg Schub erzeugen<br/>
+            Natürlich müssen die Motoren auch irgendwie angesteuert werden und dazu braucht jeder Motor auch einen Motorcontroller. Davon ist einer hier links auf der Folie abgebildet und Fabian wird euch dazu später noch ein bisschen mehr erzählen aber kleiner Spoiler: So ganz Pflegeleicht sind die nicht.<br/>
+            Als&nbsp;Drehmoment können sie bis zu 2,6 Nm aufbringen, allerdings reicht das allein noch nicht ganz aus, um mit zwei Beinen einen&nbsp;Roboter&nbsp;im Gesamtgewicht&nbsp;von&nbsp;knapp 15Kg zu tragen<br/>
+            Deshalb braucht es Getriebe
         </aside>
     </section>
     <section data-transition="fade" data-transition-speed="fast">
@@ -74,9 +77,16 @@
             </figure>
         </div>
         <aside class="notes">
-            Als Getriebe kommen Zykloidgetriebe zum Einsatz. Sie zeichnen sich durch ihre kompakte Bauart bei
-            hohem Übersetzungspotential und großer Stoßfestigkeit aus. In der Animation sieht man, wie ein
-            solches Getriebe funktioniert und wie es seine hohe Übersetzung erreicht.
+            Tobias<br/>
+            Als Getriebe kommen Zykloidgetriebe zum Einsatz.<br/>
+            Zykloidgetriebe zeichnen sich durch ihre kompakte Bauart bei hohem Übersetzungspotential und großer Stoßfestigkeit aus.<br/>
+            Und da bestimmt nicht viele von euch mit Zykloidgetrieben vertraut sind, schauen wir uns hier in der Animation mal an, wie ein solches Getriebe funktioniert und wie es seine hohe Übersetzung erreicht<br/>
+            Das Herzstück ist die blaue Zykloidscheibe.<br/>
+            welche von der grünen Exzenterwelle angetrieben wird<br/>
+            Durch die exzentrische Form der Exzenterwelle taumelt die Zykloidscheibe sozusagen im Getriebe und wird&nbsp;Zahn für Zahn immer eine&nbsp;Lücke zwischen zwei so genannten Ring Pins &nbsp;weiter getrieben.<br/>
+            Und das führt dazu, dass für jede volle Umdrehung der Exzenterwelle die  Zykloidscheibe um einen Zahn weiter wandert und dabei die rote Ausgangscheibe mitnimmt<br/>
+            Das heißt in diesem Beispiel bei 10 Ring Pins und 9 Zähnen der Zykloidscheibe, werden 9 volle Umdrehungen des Input Schafts gebraucht, um eine Umdrehung am Getriebeausgang zu erreichen.<br/>
+            Wir erhalten also ein Übersetzungsverhältnis von 9:1 was zu einem 9 mal größerem Drehmoment am Ausgang im Verhältnis zum Eingang führt.
         </aside>
     </section>
     <section data-transition="fade" data-transition-speed="fast">
@@ -107,42 +117,11 @@
             </video>
         </div>
         <aside class="notes">
-            Diese Getriebe bestehen &ndash; ausgenommen der Kugellager &ndash; komplett aus selbstgedruckten
-            Komponenten. 16 Ring Pins und 15 Zähne auf der Zykloidscheibe ergeben ein Übersetzungsverhältnis
-            von 15:1, also nominal fast 40 Nm Drehmoment am Getriebeausgang.
-        </aside>
-    </section>
-    <section data-transition="fade" data-transition-speed="fast">
-        <h1>Mounted on the Motor</h1>
-        <div class="content split">
-            <div class="side-text">
-                <div class="cause-effect">
-                    <div class="premise">
-                        <p>16 ring pins</p>
-                        <p>15 teeth for cycloidal disc</p>
-                    </div>
-                <svg class="chevron" viewBox="0 0 100 50" aria-hidden="true">
-                    <path d="M0,0 L50,38 L100,0 L100,14 L50,50 L0,14 Z"/>
-                </svg>
-                    <div class="effect">
-                        <ul>
-                        <li>ratio 15:1</li>
-                        <li><b>2.64 Nm</b> at the input lead to<b> 39.6 Nm</b> output torque</li>
-                        <li>reduced speed at output</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <video preload="none" data-start="0" muted loop data-id="video"
-                   poster="/img/posters/karsten/cycloidal_gear_motor_poster.jpeg"
-                       style="height: 650px; width: auto; max-height: none; max-width: none;">
-                <source src="/media/video/karsten/cycloidal_gear_motor.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </div>
-        <aside class="notes">
-            Hier das Getriebe verbaut mit dem Motor. Ein Übersetzungsverhältnis von 15:1 führt auch zu einer
-            15-fach kleineren Drehzahl: Der Motor unten dreht sich deutlich schneller als das Legomännchen on top.
+            Tobias<br/>
+            Diese Getriebe bestehen, ausgenommen der Kugellager bei unserem Roboter komplett aus selbstgedruckten Komponenten<br/>
+            Dabei haben unsere Getriebe 16 Ring pins und 15 Zähne auf der Zykloidscheibe, was entsprechend zu einem Übersetzungsverhältnis von 15:1 führt.<br/>
+            Das heißt mit unseren Motoren führt das nominal zu fast 40 Nm Drehmoment am Getriebeausgang.<br/>
+            Zum Vergleich, der G1 von Unitree hat laut Hersteller je nach Modell 90 oder 120 Nm maximales Drehmoment im Kniegelenk, der Roboter ist aber auch doppelt so schwer.
         </aside>
     </section>
     <section data-transition="fade" data-transition-speed="fast">
@@ -160,10 +139,13 @@
             </figure>
         </div>
         <aside class="notes">
-            Es gibt auch weitere Getriebearten, die bei Robotern und Humanoiden eingesetzt werden. Der Klassiker
-            ist das Harmonic Drive, das durch einen flexiblen Zahnkranz ("Flexspline") ein ähnliches
-            Funktionsprinzip hat wie das Zykloidgetriebe, und vor allem durch hohe Übersetzungsdichte und
-            Präzision überzeugt.
+            Tobias<br/>
+            Es gibt auch weitere Getriebearten, die bei Robotern und natürlich auch bei Humanoiden eingesetzt werden.<br/>
+            Der Klassiker ist das Harmonic Drive, das&nbsp;durch einen flexiblen Zahnkranz („Flexspline“) ein ähnliches Funkionsprinzip hat wie das eben vorgestellte Zykloidgetriebe, und vor allem durch seine hohe Übersetzungsdichte und Präzision glänzt.<br/>
+            Allerdings sind HD relativ teuer und vertragen auch Schläge nicht so gut, was sie weniger optimal für Humanoide Roboter macht<br/>
+            Der Trend geht daher tatsächlich zum Planetengetriebe, welche aufgrund iher kleineren Übersetzung gerne als Doppelgetriebe verbaut werden.<br/>
+            Planetengetriebe sind deutlich weniger Stoßanfällig, i.d.R. günstiger in der Produktion und besitzen eine gute Rücktreibbarkeit, das heißt sie können Gegenkräfte dynamischer und weicher Abfedern und sind deshalb insbesondere für Beingelenke gut geeignet.<br/>
+            Hier Rechts sieht man ein auseinandergebautes Planeten-Doppelgetriebe eines Unitree G1 Roboters, dem ihr hier heute bestimmt auch noch über den Weg laufen werdet.
         </aside>
     </section>
     <section data-transition="fade" data-transition-speed="fast">
@@ -175,10 +157,12 @@
                  style="height: 730px; width: auto; max-height: none; max-width: none;">
         </div>
         <aside class="notes">
-            Der Roboter muss wissen, wie er zum Boden positioniert ist und was die derzeitigen
-            Winkelgeschwindigkeiten sind. Das ist &ndash; neben den Motorpositionen &ndash; seine
-            Hauptinformationsquelle zum Steuern. Die Messung erfolgt mit IMUs; Herausforderungen sind
-            Drift, Noise und Latenz.
+            Fabian übernimmt<br/>
+            Roboter muss wissen wie er zum Boden positioniert ist und was derzeitige Winkelgeschwindigkeiten sind. Das ist (neben den Motorpositionen) seine Hauptinformationsquelle, die er zum Steuern verwendet.<br/>
+            Messung erfolgt mit IMUs, Herausforderungen sind<br/>
+            * Drift, Noise, Latenz<br/>
+            Im Verlauf unserer Experimente hat sich herausgestellt, dass das original Set-up für die IMU nicht präzise genug ist<br/>
+            Nach dem Umstieg auf eine Hiwonder IMU (rechts im Bild), war der Roboter deutlich stabiler
         </aside>
     </section>
     <section data-transition="fade" data-transition-speed="fast">
@@ -187,9 +171,11 @@
             <img src="/img/karsten/cable_management_before.jpg" alt="First arm with messy cabling">
         </div>
         <aside class="notes">
-            Wie so häufig ist auch die Verkabelung eines der Probleme, die sich nur bedingt im Voraus planen
-            lassen &ndash; daher muss man erstmal ausprobieren. Hier sieht man die erste Extremität, die
-            fertiggestellt wurde.
+            Fabian<br/>
+            "Mit Motoren, Getrieben, und IMU nähern wir uns rasant einem kompletten Roboter, aber auf dem Weg gab es noch ein paar Schwierigkeiten, die wir nicht verheimlichen wollen."<br/>
+            Wie so häufig ist auch die Verkabelung eines der Probleme, die sich nur bedingt im Voraus planen lässt. -> daher muss man erstmal ausprobieren<br/>
+            Hier sieht man die erste Extremität die fertig gestellt wurde.<br/>
+            Wenn dieser Arm mal nicht funktioniert -> viel Spaß beim Debuggen...
         </aside>
     </section>
     <section data-transition="fade" data-transition-speed="fast">
@@ -198,8 +184,12 @@
             <img src="/img/karsten/cable_management_after.jpg" alt="Arm with tidy cabling">
         </div>
         <aside class="notes">
-            Daher Iteration: korrekte Längen der Kabel, Stecker für Stromversorgung und CAN-Bus (Ansteuerung),
-            Zugentlastung, damit kein Zug vom Kabel an den Motorcontroller durchgeleitet wird.
+            Fabian<br/>
+            Daher Iteration:<br/>
+            Korrekte Längen der Kabel<br/>
+            Stecker für Stromversorgung und CAN Bus (Ansteuerung)<br/>
+            Zugentlastung -> Zug vom Kabel nicht an den Motorcontroller durchlassen<br/>
+            Man könnte die Kabel langristig noch in Textilband o.Ä. einwickeln -> hängen nicht so lose herum
         </aside>
     </section>
     <section data-transition="fade" data-transition-speed="fast">
@@ -211,10 +201,10 @@
                  style="height: 690px; width: auto; max-height: none; max-width: none;">
         </div>
         <aside class="notes">
-            Eine weitere Herausforderung sind kleinere, aber wichtige, nicht dokumentierte Details. In sämtlichen
-            Bauanleitungen und Videotutorials sind diese markierten Gelenkanschläge nirgends aufgetaucht, weswegen
-            wir sie nicht montiert hatten &ndash; bis sie uns bei einem genaueren Blick ins CAD-Modell zufällig
-            aufgefallen sind.
+            Florian<br/>
+            Eine weitere Herrausvorderung sind kleinere aber doch wichtige nicht dokumentierte Details.<br/>
+            Z.B. sind in sämtlichen Bauanleitung und Videotutorials diese markierten Gelenkanschläge niergends aufgetaucht, weswegen wir sie dann auch nicht montiert hatten, bis sie uns irgendwann bei einem genaueren Blick in das CAD Model zufällig aufgefallen sind.<br/>
+            Dabei sind die gar nicht so unwichtig, weil sie entscheidend sind für die Motorkalibrierung.<br/>
         </aside>
     </section>
     <section data-transition="fade" data-transition-speed="fast">
@@ -226,8 +216,10 @@
                  style="height: 730px; width: auto; max-height: none; max-width: none;">
         </div>
         <aside class="notes">
-            Für mehr Stabilität wird im Gelenk ein Messingteil benötigt. Leider gibt es das in dieser Form nicht
-            zu kaufen &rarr; DIY.
+            Florian<br/>
+            Für mehr Stabilität wird im Gelenk ein Messingteil benötigt<br/>
+            Leider gibt es das in der Form nicht zu kaufen<br/>
+            -> DIY
         </aside>
     </section>
     <section data-transition="fade" data-transition-speed="fast">
@@ -240,7 +232,8 @@
             </video>
         </div>
         <aside class="notes">
-            Unser Arbeitssicherheitsbeauftragter ist hoffentlich gerade nicht anwesend.
+            Florian<br/>
+            Unser Arbeitssicherheitsbeauftragter ist hoffentlich gerade nicht anwesend
         </aside>
     </section>
     <section data-transition="fade" data-transition-speed="fast">
@@ -253,21 +246,9 @@
             </video>
         </div>
         <aside class="notes">
-            "Hardware haben wir beisammen, jetzt müssen wir sie richtig ansteuern." Quasi die "Baby Experience".
-        </aside>
-    </section>
-    <section data-transition="fade-in slide-out" data-transition-speed="fast">
-        <h1>Hardware Assembled</h1>
-        <div class="content">
-            <video preload="none" data-start="0" muted loop data-id="video"
-                   poster="/img/posters/karsten/baby_walking_poster.jpeg">
-                <source src="/media/video/karsten/baby_walking.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-            <p class="prompt">* No babies were harmed during the making of this video</p>
-        </div>
-        <aside class="notes">
-            Hat auch Hardware beisammen und muss lernen, damit umzugehen.
+            Tobias<br/>
+            "Hardware haben wir beisammen, jetzt müssen wir sie richtig ansteuern"<br/>
+            Quasi die "Baby Experience"
         </aside>
     </section>
 </section>

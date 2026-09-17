@@ -259,7 +259,7 @@ img {
   }
 
   section:not(.title-section) h1 {
-    .title-font(110px);
+    .title-font(90px);
     margin-top: 60px;
   }
 
@@ -541,6 +541,7 @@ img {
     width: auto;
     border-style: none;
     .rounded-corners(.5rem);
+    cursor: pointer;
   }
 
   section table.overview * {
@@ -1411,11 +1412,11 @@ body.light-mode.print-pdf .reveal .slides section {
 
 
 // --- Vertical rhythm for media slides -------------------------------------
-// Canvas is 1920x1080. A single <h1> occupies 60 (margin-top) + 110 (1em line)
-// + 20 (margin-bottom) = 190px, and the fixed footer owns the bottom 60px, so
-// the band left for the media runs 190 -> 1020 = 830px. .content is content-box
-// with 10px padding, so a 60px optical gutter above and below the media gives
-// margin-top 30 and height 730.
+// Canvas is 1920x1080. A single <h1> occupies 60 (margin-top) + 90 (1em line)
+// + 20 (margin-bottom) = 170px, and the fixed footer owns the bottom 60px, so
+// the band left for the media runs 170 -> 1020 = 850px. .content is content-box
+// with 10px padding, so margin-top 30 and height 730 give the media a 60px
+// optical gutter above and a larger one below.
 //
 // `h1 + div.content` matches only decks whose slides carry a single heading;
 // the other talks put an <h2> between the two, so they keep the 700px default.
@@ -1505,26 +1506,39 @@ body.light-mode.print-pdf .reveal .slides section {
 
 // ---------------------------------------------------------------------------
 // Overview slide. The template sizes the chapter list at 70px with 100px of
-// top margin and ~104px per entry; with 9 chapters that comes to 1036px in the
-// 830px band between the <h1> and the footer, so the last two entries fall off
-// the bottom of the slide. Sized to fit 9 entries with room to spare.
-// line-height is set explicitly so the arithmetic is not at the mercy of an
-// inherited value.
+// left margin and ~104px per entry; with 9 chapters that came to 1036px in the
+// 830px band between the <h1> and the footer. The deck is down to 5 chapters
+// (RL/Sim2Real/Walk Style merged into one; Contributors and Backup carry no
+// data-title anymore), so the list is back up to 64px with a little more air
+// per entry, and centered on the slide: .titles-parent owns the 830px band
+// left under the "Overview" <h1> (60 + 90 + 20 + 20 = 190px, footer top at
+// 1020px) and centers the list inside it. 5 entries at 64px/1.25 line-height
+// plus padding/margins come to ~510px, well inside the band.
 // ---------------------------------------------------------------------------
+.reveal > .slides section.overview .titles-parent {
+  height: 830px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .reveal .slides section:not(.title-section) .titles {
-  font-size: 54px;
+  font-size: 64px;
+  letter-spacing: -0.01em;
 }
 
 .reveal > .slides section .titles {
-  margin-top: 40px;
+  margin-top: 0;
+  margin-left: 0; // template base: 100px left-aligned offset
+  text-align: center;
 }
 
 .reveal > .slides section .title,
 .reveal > .slides section .selected-title {
-  line-height: 1.2;
-  margin-top: 4px;
-  margin-bottom: 4px;
-  padding-top: 8px;
+  line-height: 1.25;
+  margin-top: 6px;
+  margin-bottom: 6px;
+  padding-top: 10px;
 }
 
 .reveal .slides section .title:before,
